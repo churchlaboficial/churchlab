@@ -342,9 +342,9 @@ class Models extends Component {
                             </div>
                             <input type="file" className="fileInput" onChange={this.handleBackgroundChange}  accept="image/*" />
                             
-                            <TextField name="lineOne" placeholder="Nome" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
-                            <TextField name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
-                            <TextField name="lineThree" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
+                            <TextField label="Data do culto" name="lineOne" placeholder="Nome" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
+                            <TextField label="Endereço da igreja" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
+                            <TextField label="Nome dos convidados" name="lineThree" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
                             <Button onClick={this.prepareDownload} variant="contained" color="primary">
                                 GERAR
                             </Button>
