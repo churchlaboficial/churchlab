@@ -1,0 +1,83 @@
+
+.Familia #boxToEdit .defaultBackground{
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.Familia #boxToEdit .defaultBackground.feed{
+    background-image:url('./feed/default.png');
+}
+
+.Familia #boxToEdit .defaultBackground.story{
+    background-image:url('./story/default.png');
+}
+
+.Familia #boxToEdit .boxContent {
+    width: 100%;
+    color: white;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 13%;
+}
+.Familia #boxToEdit .boxContent .row {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    left: 0;
+    padding: 0 13%;
+}
+
+.Familia #boxToEdit .boxContent .date {
+    margin-top: 190px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Familia .lineOne { 
+    display: flex;
+    border: 2px solid;
+    padding: 5px;
+    height: fit-content;
+    overflow: hidden;
+    font-size: 23px;
+    padding: 10px 20px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.Familia .lineTwo {
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 34px;
+    width: 140px;
+    text-align: right;
+}
+
+.Familia .minister {
+    width: 90px;
+    padding-left: 50px;
+    line-height: 22px;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.Familia .address {     
+    width: 260px;
+    line-height: 24px;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: .6vw;
+}

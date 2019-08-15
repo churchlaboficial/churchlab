@@ -1,0 +1,59 @@
+
+.Oracao #boxToEdit .defaultBackground{
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.Oracao #boxToEdit .defaultBackground.feed{
+    background-image:url('./feed/default.png');
+}
+
+.Oracao #boxToEdit .defaultBackground.story{
+    background-image:url('./story/default.png');
+}
+
+.Oracao #boxToEdit .boxContent {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    padding: 0 13vh;
+    color: white;
+    box-sizing: border-box;
+}
+.Oracao #boxToEdit .boxContent .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Oracao .date {
+    border: 2px solid;
+    padding: 5px 10px 10px;
+    max-width: 380px;
+    font-size: 1.7em;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    line-height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Oracao .minister {
+    width: 90px;
+    padding-left: 50px;
+    line-height: 22px;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.Oracao .address {     
+    width: 260px;
+    line-height: 24px;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: .6vw;
+}

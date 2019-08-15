@@ -1,0 +1,34 @@
+#root.story .App-header {
+    width: 10%;
+    background: transparent;
+}
+
+#root.story .App-header .App-logo {
+    filter: invert(1);
+}
+
+#root.story .backButton {
+    position: fixed;
+    right: 35px;
+    color: black;
+}
+
+#root.story .App-editor,
+#root.story .App-editor .container {
+    margin: 0;
+    align-items: center;
+    height: 100vh;
+}
+
+#root.story .App-editor .container .contentBox {
+    margin-right: 120px;
+}
+
+#root.story .App-editor .container .contentFields {
+    justify-content: flex-start;
+}
+
+#root.story .App-editor #boxToEdit {
+    height: 95vh;
+    width: 54vh;
+}

@@ -1,0 +1,59 @@
+
+.Vitoria #boxToEdit .defaultBackground{
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.Vitoria #boxToEdit .defaultBackground.feed{
+    background-image:url('./feed/default.png');
+}
+
+.Vitoria #boxToEdit .defaultBackground.story{
+    background-image:url('./story/default.png');
+}
+
+.Vitoria #boxToEdit .boxContent {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    padding: 0 13vh;
+    color: white;
+    box-sizing: border-box;
+}
+.Vitoria #boxToEdit .boxContent .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Vitoria .date {
+    border: 2px solid;
+    padding: 5px 10px 10px;
+    max-width: 380px;
+    font-size: 1.7em;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    line-height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Vitoria .minister {
+    width: 90px;
+    padding-left: 50px;
+    line-height: 22px;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.Vitoria .address {     
+    width: 260px;
+    line-height: 24px;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: .6vw;
+}

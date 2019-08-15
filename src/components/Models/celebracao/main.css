@@ -1,0 +1,89 @@
+
+.Celebracao #boxToEdit .defaultBackground{
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+
+.Celebracao #boxToEdit .defaultBackground.feed{
+    background-image:url('./feed/default.png');
+}
+
+#root.story .Celebracao #boxToEdit .defaultBackground{
+    background-image:url('./story/default.png');
+}
+
+.Celebracao .App-editor #boxToEdit .boxContent {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    padding: 0 13%;
+    color: white;
+    box-sizing: border-box;
+}
+.Celebracao .App-editor #boxToEdit .boxContent .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Celebracao .lineOne {
+    border: 2px solid;
+    padding: 5px 10px 10px;
+    max-width: 380px;
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    line-height: 22px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Celebracao .lineTwo {
+    width: 90px;
+    padding-left: 50px;
+    line-height: 22px;
+    text-align: right;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.Celebracao .lineThree {     
+    width: 180px;
+    line-height: 18px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: .6vw;
+}
+
+/******* EXPORT *********/
+
+.Celebracao #boxToEdit.export {
+    width: 1080px;
+    height: 1080px;
+}
+
+.Celebracao #boxToEdit.export .boxContent {
+    bottom: 40px;
+}
+
+.Celebracao #boxToEdit.export .lineOne {
+    font-size: 44px;
+    line-height: 50px;
+    padding: 5px 40px 20px;
+}
+
+.Celebracao #boxToEdit.export .lineTwo {
+    font-size: 38px;
+    width: 170px;
+    line-height: 40px;
+}
+
+.Celebracao #boxToEdit.export .lineThree{
+    margin-top: 20px;
+    font-size: 28px;
+    width: 290px;
+    line-height: 34px;
+}

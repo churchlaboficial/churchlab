@@ -1,0 +1,226 @@
+#step-2 * {
+    transition: .5s ease-in-out;
+}
+
+.active {
+    display: flex!important;
+}
+
+.App-editor, .App-editor .container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 3.6vw;
+}
+
+.contentBox {
+    display: flex;
+    flex: 5;
+    justify-content: flex-end;
+}
+ 
+.contentFields {
+    flex:3;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+.contentFields .fields {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    
+}
+
+.contentFields .fields .backgroundTitle {
+    border-top: 1px solid;
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid;
+    border-color: #dadada;
+    margin: 0px 0 10px;
+    font-weight: 300;
+}
+
+.contentFields .fields input{
+    padding-bottom: 15px;
+}
+
+.modelType {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modelType button {
+    background: #63a0fd;
+    color: white;
+    font-weight: 500;
+    padding: 0;
+}
+.modelType button span {
+    padding: 5px 25px;
+}
+
+.modelType button:hover {
+    background: #313131;
+}
+
+
+.MuiInput-root {
+    margin-bottom: 10px;
+}
+
+.App-editor #boxToEdit {
+    background-image: url('../../assets/img/default.png');
+    width: 80vh;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    margin: 0px 0;
+    position: relative;
+}
+
+.imgChange {
+    height: 250px;
+    background: #ececec;
+    border-radius: 10px;
+    border: 2px dashed #aaaaaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    transition: .5s ease-in-out;
+    outline: none;
+}
+.imgChange.hide {
+    display: none;
+}
+
+.imgChange:hover {
+    cursor: pointer;
+    background: #f0f3f7;
+}
+
+.imgChange svg {
+    height: 50px;
+    width: 40px;
+    color: #bebebe;
+    transition: .5s ease-in-out;
+}
+
+.imgChange:hover svg {
+    color: #3f51b5;
+}
+
+.fileInput { 
+    display:none;
+}
+
+.backgroundOptions {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #181818e3;
+    z-index: 8;
+    flex-direction: column;
+    color: white;
+}
+
+.backgroundOptions.active {
+    display: flex;
+}
+
+.backgroundOptions .heading h4 {
+    font-size: 24px;
+    margin: 0 0 40px;
+}
+
+.backgroundOptions .option:hover {
+    background: #393793;
+}
+
+.options {
+    display: flex;
+}
+
+.options .option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    background: #625ef8;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.dualBackground {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.dualBackground .option {
+    flex:1;
+    background-size: cover!important;
+}
+
+.dualBackground .option.two {
+    background: #2f465f9e;
+}
+
+.dualBackground .option.one {
+    background: #007cff9e;
+}
+
+.imgChangeOptions {
+    display: none;
+    flex-direction: column;
+}
+
+.imgChangeOptions .imgChange {
+    flex: 1;
+    height: 180px;
+    margin: 5px;
+}
+
+
+.changeBackgroundType {
+    display: none;
+ 
+}
+
+.backgroundPosition {
+    display: flex;
+    margin: 10px 0;
+}
+
+.backgroundPosition .box {
+    flex: 1;
+    display: flex;
+}
+
+.backgroundPosition .box select {
+    flex: 1;
+    margin: 0 5px;
+    border: none;
+    background: #e3e3e3;
+    padding: 5px;
+    outline: none;
+}
+
+.MuiButton-root.changeBackgroundType {
+    background: #ffac10;
+    color: white;
+    padding: 4px;
+    margin: 10px 5px 10px;
+}
