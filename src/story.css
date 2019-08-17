@@ -3,14 +3,9 @@
     background: transparent;
 }
 
-#root.story .App-header .App-logo {
-    filter: invert(1);
-}
-
 #root.story .backButton {
     position: fixed;
     right: 35px;
-    color: black;
 }
 
 #root.story .App-editor,
@@ -21,14 +16,14 @@
 }
 
 #root.story .App-editor .container .contentBox {
-    margin-right: 120px;
+    zoom: 40%;
 }
 
 #root.story .App-editor .container .contentFields {
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 #root.story .App-editor #boxToEdit {
-    height: 95vh;
-    width: 54vh;
+    height: 1920px;
+    width: 1080px;
 }

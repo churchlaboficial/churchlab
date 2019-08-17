@@ -11,37 +11,37 @@ import Models from '../models';
 
 let dataStructure;
 
-class Ebd extends Component {
-   constructor() {
+class EBD extends Component {
+    constructor(){
         super();
         this.state = {
             data: 'domingo às 19h', 
+            autor: '',
             endereco: 'rua montevidéu, 900 penha - rj', 
-            autor: 'Pr. Silas Malafaia',
             backgroundImage: '',
             modelType: '',
+            culto: 'EBD',
         }
     }
       
     render() {
 
-       dataStructure = 
+        dataStructure = 
             <div className="boxContent">
-                <div className="row">
+                <div className="row rowOne">
                     <div className="lineOne">{this.state.data}</div>
-                    <div className="lineTwo">{this.state.autor}</div>
                 </div>
-                <div className="row">
+                <div className="row rowTwo">
                     <div className="lineThree">{this.state.endereco}</div>
                 </div>
             </div>
 
         return (
             <MuiThemeProvider>
-                <Models structure={dataStructure}/>
+                <Models cultoName={this.state.culto} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }
 }
 
-export default Ebd;
+export default EBD;

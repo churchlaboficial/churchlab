@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 5vmin;
+  height: 4vmin;
   pointer-events: none;
 }
 
@@ -66,16 +66,16 @@
 
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 0 40px;
-  z-index: 9;
+      /* background-color: #282c34; */
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 0 40px;
+    z-index: 9;
 }
 
 .App-link {
@@ -83,6 +83,7 @@
 }
 
 .step {
+  background: #20242b;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -107,6 +108,8 @@
   font-size: 36px;
   text-align: center;
   padding: 0 80px;
+  color: white;
+  line-height: 28px;
 }
 
 /* / Heading */
@@ -127,19 +130,26 @@
 
 .App-container .blockTypes .models .item:hover {
   cursor: pointer;
-  background: #abced9;
-  color: white;
+    background: #dd8c00;
+    color: white;
+    border: 1px solid #dd8c00;
+    -webkit-box-shadow: 0px 10px 71px -27px rgba(221, 140, 0, 1) !important;
+    -moz-box-shadow: 0px 10px 71px -27px rgba(221, 140, 0, 1) !important;
+    box-shadow: 0px 10px 71px -27px rgba(221, 140, 0, 1) !important;
 }
 
 .App-container .blockTypes .models .item {
-  flex-basis: 20%;
-  border: 2px solid;
-  margin-bottom: 20px;
-  padding: 25px 10px;
-  text-align: center;
-  border-radius: 10px;
-  font-size: 20px;
-  margin: 5px;
+      color: white;
+    flex-basis: 20%;
+    border: 1px solid;
+    margin-bottom: 20px;
+    padding: 25px 10px;
+    text-align: center;
+    /* border-radius: 10px; */
+    font-size: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: .1s ease-in-out;
 }
 
 /* / Block Types */
@@ -150,11 +160,12 @@
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
+
+/* 
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -174,7 +185,7 @@
   .container {
     max-width: 1140px;
   }
-}
+} */
 
 /* EXPORT */
 

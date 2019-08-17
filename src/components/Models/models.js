@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { FaImage } from 'react-icons/fa';
 import loader from '../../assets/img/loading.gif';
 
@@ -13,9 +15,10 @@ class Models extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lineOne: this.props.datadia, lineTwo: this.props.dataendereco, lineThree: this.props.dataautor,
+            lineOne: this.props.datadia, lineTwo: this.props.dataautor, lineThree: this.props.dataendereco,
             backgroundImage: '',
             modelType: '',
+            cultoType: this.props.cultoName,
             
       }
         this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
@@ -33,7 +36,23 @@ class Models extends Component {
 			[name]: value
           })
 
-          document.querySelectorAll('input[name$="'+name+'"]')[0].value = this.state[name];
+          console.log(name);
+
+          switch(name) {
+            case "lineOne":
+                var input = document.querySelector('input[name="lineOne"]');
+                input.setAttribute("maxlength", 35);
+            break;
+            case "lineTwo":
+                var input = document.querySelector('input[name="lineTwo"]');
+                input.setAttribute("maxlength", 40);
+            break;
+            case "lineThree":
+                var input = document.querySelector('input[name="lineThree"]');
+                input.setAttribute("maxlength", 70);
+            break;
+          }
+
           document.getElementsByClassName(name)[0].innerHTML = value;
       }
 
@@ -279,6 +298,16 @@ class Models extends Component {
         
         let baseBackground = this.state.backgroundImage.toString();
 
+        // desatibiliar inputs de acordo com o culto
+
+        if(this.state.cultoType === "EBD") {
+            var disableForm = "none";
+        } else {
+            var disableForm = "";
+        }
+
+        console.log(disableForm);
+
         return (
             <MuiThemeProvider>
             <div className="App-editor">
@@ -320,17 +349,10 @@ class Models extends Component {
                     </div>
                     <div className="contentFields">
                         <div className="fields">
-                            <div className="modelType">
-                                <Button onClick={this.changeModelType.bind(this)} className="model-btn">
-                                    feed
-                                </Button>
-                                <Button onClick={this.changeModelType.bind(this)} className="model-btn">
-                                    story
-                                </Button>
-                            </div>
-                            <h4 className="backgroundTitle">Imagem de fundo</h4>
+                            <h4 className="backgroundTitle">Selecione o fundo da sua arte</h4>
                             <div className="imgChange" id="dumpoption" onClick={this.handleBackgroundTemplate}>
                                 <FaImage/>
+                                <div style={{ color: 'white', marginLeft: '10px' }}>Clique aqui</div>
                             </div>
 
                             <div className="imgChangeOptions">
@@ -342,12 +364,24 @@ class Models extends Component {
                             </div>
                             <input type="file" className="fileInput" onChange={this.handleBackgroundChange}  accept="image/*" />
                             
-                            <TextField label="Data do culto" name="lineOne" placeholder="Nome" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
-                            <TextField label="Endereço da igreja" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
-                            <TextField label="Nome dos convidados" name="lineThree" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
-                            <Button onClick={this.prepareDownload} variant="contained" color="primary">
-                                GERAR
+                            <TextField variant="outlined" margin="normal" label="Data do culto" name="lineOne" placeholder="Domingo às 19h" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
+                            <TextField style={{ display: disableForm }} label="Nome dos convidados" margin="normal" placeholder="Pr. Silas Malafaia" variant="outlined" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
+                            <TextField label="Endereço da igreja" margin="normal" variant="outlined" name="lineThree" placeholder="Rua montevidéu, 900 - RJ" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
+                            
+                            <div className="modelType">
+                                <Grid item xs={12}>
+                                    <ButtonGroup color="secondary" size="large" fullWidth aria-label="full width outlined button group">
+                                      <Button onClick={this.changeModelType.bind(this)} >feed</Button>
+                                      <Button onClick={this.changeModelType.bind(this)} >story</Button>
+                                    </ButtonGroup>
+                                </Grid>
+                            </div>
+
+
+                            <Button size="large" onClick={this.prepareDownload} variant="contained" className="buttonGerar">
+                                GERAR ARTE
                             </Button>
+
                         </div>
                     </div>
                 </div>

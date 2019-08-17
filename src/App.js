@@ -49,7 +49,7 @@ class GlobalHeading extends React.Component{
     return (
       <div className="App-global-heading">
         <div className="container">
-          <h3>escolha o tipo de arte<br></br> de acordo com o culto que deseja</h3>
+          <h3>Escolha o tipo de arte<br></br> de acordo com o culto que deseja</h3>
         </div>
       </div>
     )
@@ -191,6 +191,7 @@ class App extends React.Component {
     return (
       <main className="App-container">
         <div className="App-header">
+        <img className="App-logo" src={require('./assets/img/logo.png')} />
         <img className="App-logo" src={require('./assets/img/logo.png')} />
         {this._appBackButton()}
         </div>

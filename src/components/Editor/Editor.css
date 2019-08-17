@@ -6,24 +6,51 @@
     display: flex!important;
 }
 
+.backButton {
+    cursor: pointer;
+}
+
 .App-editor, .App-editor .container {
     display: flex;
-    flex: 1;
+    flex: 1 1;
+    width: 100%;
     justify-content: center;
-    margin: 3.6vw;
+    align-items: center;
+    /* margin: 3.6vw; */
+    height: 100vh;
+    overflow: hidden;
 }
 
 .contentBox {
+    background: #20242b;
     display: flex;
-    flex: 5;
-    justify-content: flex-end;
+    flex: 5 1;
+    justify-content: center;
+    align-items: center;
+    zoom: 70%;
+    height: 100%;
+}
+
+@media (max-width: 1440px) {
+  .contentBox {
+    zoom: 50%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .contentBox {
+    zoom: 50%;
+  }
 }
  
 .contentFields {
-    flex:3;
+    background: #262b33;
+    flex: 3 1;
     display: flex;
-    align-content: center;
+    /* align-content: center; */
+    align-items: center;
     justify-content: center;
+    height: 100%;
 
 }
 .contentFields .fields {
@@ -34,13 +61,16 @@
 }
 
 .contentFields .fields .backgroundTitle {
-    border-top: 1px solid;
+        /* border-top: 1px solid; */
     text-align: center;
     padding: 5px;
-    border-bottom: 1px solid;
-    border-color: #dadada;
+    /* border-bottom: 1px solid; */
+    /* border-color: #dadada; */
     margin: 0px 0 10px;
     font-weight: 300;
+    font-size: 25px;
+    color: #20242b;
+    line-height: 20px;
 }
 
 .contentFields .fields input{
@@ -49,24 +79,46 @@
 
 .modelType {
     margin-bottom: 20px;
-    display: flex;
-    justify-content: space-around;
 }
 
 .modelType button {
-    background: #63a0fd;
     color: white;
     font-weight: 500;
-    padding: 0;
-}
-.modelType button span {
-    padding: 5px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5)
 }
 
 .modelType button:hover {
     background: #313131;
+    border: 1px solid rgba(255, 255, 255, 1)
 }
 
+.buttonGerar {
+    color: white !important;
+    background: #00DD68 !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    padding: 25px !important;
+    margin-top: 15px !important;
+    -webkit-box-shadow: 0px 10px 71px -27px rgba(0,221,103,1) !important;
+    -moz-box-shadow: 0px 10px 71px -27px rgba(0,221,103,1) !important;
+    box-shadow: 0px 10px 71px -27px rgba(0,221,103,1) !important;
+}
+
+.buttonGerar:hover {
+    background: #00DD68 !important;
+}
+
+.inputForm {
+    border-color: rgba(255, 255, 255, 1) !important;
+}
+
+.MuiFormLabel-root {
+    color: rgba(255, 255, 255, 0.54) !important;
+}
+
+.MuiInputBase-root {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
 
 .MuiInput-root {
     margin-bottom: 10px;
@@ -74,24 +126,26 @@
 
 .App-editor #boxToEdit {
     background-image: url('../../assets/img/default.png');
-    width: 80vh;
+    width: 1080px;
     background-position: center;
     background-size: cover;
-    height: 80vh;
+    height: 1080px;
     margin: 0px 0;
     position: relative;
+    -webkit-box-shadow: 0px 10px 71px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 71px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 71px -27px rgba(0,0,0,0.75);
 }
 
 .imgChange {
-    height: 250px;
-    background: #ececec;
+    height: 150px;
     border-radius: 10px;
-    border: 2px dashed #aaaaaa;
+    border: 2px dashed #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-    transition: .5s ease-in-out;
+    transition: .1s ease-in-out;
     outline: none;
 }
 .imgChange.hide {
@@ -100,18 +154,14 @@
 
 .imgChange:hover {
     cursor: pointer;
-    background: #f0f3f7;
+    background: #20242b;
 }
 
 .imgChange svg {
     height: 50px;
     width: 40px;
-    color: #bebebe;
-    transition: .5s ease-in-out;
-}
-
-.imgChange:hover svg {
-    color: #3f51b5;
+    color: #fff;
+    transition: .1s ease-in-out;
 }
 
 .fileInput { 

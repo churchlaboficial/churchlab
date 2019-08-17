@@ -1,3 +1,8 @@
+/******************************************/
+/******************************************/
+/************ FEED FEED FEED **************/
+/******************************************/
+/******************************************/
 
 .EBD #boxToEdit .defaultBackground{
     background-size: cover;
@@ -9,37 +14,92 @@
     background-image:url('./feed/default.png');
 }
 
-.EBD #boxToEdit .defaultBackground.story{
-    background-image:url('./story/default.png');
-}
 
-.EBD #boxToEdit .boxContent {
+.EBD .App-editor #boxToEdit .boxContent {
     position: absolute;
     bottom: 25px;
     width: 100%;
-    padding: 0 13vh;
+    padding: 0 13%;
     color: white;
     box-sizing: border-box;
 }
-.EBD #boxToEdit .boxContent .row {
+.EBD .App-editor #boxToEdit .boxContent .row {
     display: flex;
     justify-content: space-between;
 }
 
-.EBD .date {
-    border: 2px solid;
-    padding: 5px 10px 10px;
-    max-width: 380px;
-    font-size: 1.7em;
+/******* ROWS *********/
+.EBD .App-editor #boxToEdit .boxContent .row.rowOne {
+    position: absolute;
+    bottom: 477px;
+    width: 800px;
+    height: 120px;
+    align-items: center;
+}
+
+.EBD .App-editor #boxToEdit .boxContent .row.rowTwo {
+    position: absolute;
+    bottom: 10px;
+    width: 800px;
+    height: 80px;
+    align-items: center;
+}
+
+/******* LINES *********/
+
+.EBD .lineOne {
+    border: 3px solid;
+    padding: 15px 30px 15px 30px;
+    width: 410px;
+    /* height: 60px; */
+    font-size: 37px;
     margin: 0;
     font-weight: 600;
     display: flex;
-    line-height: 30px;
+    line-height: 39px;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    word-wrap: break-word;
+    display: block;
+    overflow: hidden;
+    text-align: center;
 }
 
-.EBD .minister {
+.EBD .lineTwo {
+    max-width: 330px;
+    line-height: 26px;
+    text-align: right;
+    font-size: 34px;
+    font-weight: 600;
+    position: absolute;
+    right: 0;
+    word-wrap: break-word;
+}
+
+
+.EBD .lineThree {     
+    max-width: 545px;
+    line-height: 29px;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+/******* EXPORT *********/
+
+.EBD #boxToEdit.export {
+    width: 1080px;
+    height: 1080px;
+}
+
+/******
+
+.EBD #boxToEdit.export .boxContent {
+    bottom: 40px;
+}
+
+.EBD #boxToEdit.export .lineOne {
     width: 90px;
     padding-left: 50px;
     line-height: 22px;
@@ -48,12 +108,92 @@
     font-weight: 600;
 }
 
+.EBD #boxToEdit.export .lineTwo {
+    font-size: 38px;
+    width: 170px;
+    line-height: 40px;
+}
 
-.EBD .address {     
-    width: 260px;
-    line-height: 24px;
-    text-align: left;
-    font-size: 22px;
+.EBD #boxToEdit.export .lineThree{
+    margin-top: 20px;
+    font-size: 28px;
+    width: 290px;
+    line-height: 34px;
+} */
+
+
+/******************************************/
+/******************************************/
+/*********** STORY STORY STORY ************/
+/******************************************/
+/******************************************/
+
+#root.story .EBD #boxToEdit .defaultBackground{
+    background-image:url('./story/default.png');
+}
+
+#root.story .EBD .lineOne {
+    border: 3px solid;
+    padding: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 791px;
+    max-width: 100%;
+    font-size: 40px;
+    margin: 0;
     font-weight: 600;
-    padding-top: .6vw;
+    display: flex;
+    line-height: 39px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    word-wrap: break-word;
+    top: 0px;
+}
+
+#root.story .EBD .lineTwo {
+    border: 3px solid;
+    padding: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 791px;
+    max-width: 100%;
+    font-size: 38px;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    line-height: 39px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    word-wrap: break-word;
+    bottom: 0px;
+}
+
+
+#root.story .EBD .lineThree {
+    line-height: 42px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    max-width: 100%;
+}
+
+/******* ROWS *********/
+#root.story .EBD .App-editor #boxToEdit .boxContent .row.rowOne {
+    position: absolute;
+    bottom: 240px;
+    width: 797px;
+    height: 200px;
+    align-items: center;
+}
+
+#root.story .EBD .App-editor #boxToEdit .boxContent .row.rowTwo {
+    position: absolute;
+    bottom: 130px;
+    width: 800px;
+    height: 100px;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
 }

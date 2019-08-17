@@ -16,8 +16,8 @@ class Vitoria extends Component {
         super();
         this.state = {
             data: 'domingo às 19h', 
-            endereco: 'rua montevidéu, 900 penha - rj', 
             autor: 'Pr. Silas Malafaia',
+            endereco: 'rua montevidéu, 900 penha - rj', 
             backgroundImage: '',
             modelType: '',
         }
@@ -25,20 +25,20 @@ class Vitoria extends Component {
       
     render() {
 
-       dataStructure = 
+        dataStructure = 
             <div className="boxContent">
-                <div className="row">
+                <div className="row rowOne">
                     <div className="lineOne">{this.state.data}</div>
                     <div className="lineTwo">{this.state.autor}</div>
                 </div>
-                <div className="row">
+                <div className="row rowTwo">
                     <div className="lineThree">{this.state.endereco}</div>
                 </div>
             </div>
 
         return (
             <MuiThemeProvider>
-                <Models structure={dataStructure}/>
+                <Models datadia={this.state.data} dataendereco={this.state.endereco} dataautor={this.state.autor} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }
