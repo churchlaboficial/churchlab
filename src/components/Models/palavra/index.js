@@ -12,33 +12,34 @@ import Models from '../models';
 let dataStructure;
 
 class Palavra extends Component {
-   constructor() {
+    constructor(){
         super();
         this.state = {
             data: 'domingo às 19h', 
-            endereco: 'rua montevidéu, 900 penha - rj', 
             autor: 'Pr. Silas Malafaia',
+            endereco: 'rua montevidéu, 900 penha - rj', 
             backgroundImage: '',
             modelType: '',
+            culto: 'Palavra',
         }
     }
       
     render() {
 
-       dataStructure = 
+        dataStructure = 
             <div className="boxContent">
-                <div className="row">
+                <div className="row rowOne">
                     <div className="lineOne">{this.state.data}</div>
                     <div className="lineTwo">{this.state.autor}</div>
                 </div>
-                <div className="row">
+                <div className="row rowTwo">
                     <div className="lineThree">{this.state.endereco}</div>
                 </div>
             </div>
 
         return (
             <MuiThemeProvider>
-                <Models structure={dataStructure}/>
+                <Models cultoName={this.state.culto} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }

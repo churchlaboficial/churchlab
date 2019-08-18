@@ -20,6 +20,7 @@ class Celebracao extends Component {
             endereco: 'rua montevidéu, 900 penha - rj', 
             backgroundImage: '',
             modelType: '',
+            culto: 'Celebracao',
         }
     }
       
@@ -38,7 +39,7 @@ class Celebracao extends Component {
 
         return (
             <MuiThemeProvider>
-                <Models datadia={this.state.data} dataendereco={this.state.endereco} dataautor={this.state.autor} structure={dataStructure}/>
+                <Models cultoName={this.state.culto} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }

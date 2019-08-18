@@ -12,14 +12,15 @@ import Models from '../models';
 let dataStructure;
 
 class Familia extends Component {
-   constructor() {
+    constructor(){
         super();
         this.state = {
-            lineOne: '12 de outubro às 19h', 
-            lineTwo: 'Andrea', 
-            address: 'rua montevidéu, 900 penha - rj',
+            data: 'domingo às 19h', 
+            autor: 'Pr. Silas Malafaia',
+            endereco: 'rua montevidéu, 900 penha - rj', 
             backgroundImage: '',
             modelType: '',
+            culto: 'Familia',
         }
     }
       
@@ -27,18 +28,18 @@ class Familia extends Component {
 
         dataStructure = 
             <div className="boxContent">
-                <div className="date">
-                    <div className="lineOne">{this.state.lineOne}</div>
-                    <div className="lineTwo">{this.state.lineTwo}</div>
+                <div className="row rowOne">
+                    <div className="lineOne">{this.state.data}</div>
+                    <div className="lineTwo">{this.state.autor}</div>
                 </div>
-                <div className="row bottom">
-                    <div className="lineThree">{this.state.address}</div>
+                <div className="row rowTwo">
+                    <div className="lineThree">{this.state.endereco}</div>
                 </div>
             </div>
 
         return (
             <MuiThemeProvider>
-                <Models structure={dataStructure}/>
+                <Models cultoName={this.state.culto} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }

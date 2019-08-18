@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 4vmin;
+  height: 45px;
   pointer-events: none;
 }
 
@@ -72,7 +72,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    font-size: calc(10px + 2vmin);
+    font-size: 30px;
     color: white;
     padding: 0 40px;
     z-index: 9;
@@ -122,10 +122,11 @@
 }
 
 .App-container .blockTypes .models {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex: 10; */
 }
 
 .App-container .blockTypes .models .item:hover {
@@ -140,7 +141,7 @@
 
 .App-container .blockTypes .models .item {
       color: white;
-    flex-basis: 20%;
+    width: 380px;
     border: 1px solid;
     margin-bottom: 20px;
     padding: 25px 10px;

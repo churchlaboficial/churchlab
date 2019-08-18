@@ -192,7 +192,6 @@ class App extends React.Component {
       <main className="App-container">
         <div className="App-header">
         <img className="App-logo" src={require('./assets/img/logo.png')} />
-        <img className="App-logo" src={require('./assets/img/logo.png')} />
         {this._appBackButton()}
         </div>
         {this._appBlockTypes()}

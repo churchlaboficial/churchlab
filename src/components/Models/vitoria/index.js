@@ -12,7 +12,7 @@ import Models from '../models';
 let dataStructure;
 
 class Vitoria extends Component {
-   constructor() {
+    constructor(){
         super();
         this.state = {
             data: 'domingo às 19h', 
@@ -20,6 +20,7 @@ class Vitoria extends Component {
             endereco: 'rua montevidéu, 900 penha - rj', 
             backgroundImage: '',
             modelType: '',
+            culto: 'Vitoria',
         }
     }
       
@@ -38,7 +39,7 @@ class Vitoria extends Component {
 
         return (
             <MuiThemeProvider>
-                <Models datadia={this.state.data} dataendereco={this.state.endereco} dataautor={this.state.autor} structure={dataStructure}/>
+                <Models cultoName={this.state.culto} structure={dataStructure}/>
             </MuiThemeProvider>
         );
     }
