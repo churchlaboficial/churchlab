@@ -314,9 +314,7 @@ class Models extends Component {
             <MuiThemeProvider>
             <div className="App-editor">
                 <div id="appNotification">
-                    <h3>Sucesso!</h3>
-                    <h5>Seu arquivo foi gerado.</h5>
-                    <span>Obrigado por usar o nosso gerador.</span>
+                    <h3>Sucesso! Sua arte foi criada e está pronta para usar!</h3>
                 </div>
                 <div className="backgroundOptions">
                     <div className="heading">
