@@ -111,7 +111,7 @@ class Models extends Component {
             let root = document.getElementById('root');
             let newMask = document.createElement('div');
             newMask.id = 'downloadMask';
-            newMask.innerHTML = '<h3>Gerando seu arquivo...</h3><img src="'+loader+'">';
+            newMask.innerHTML = '<h3>Criando sua arte...</h3><img src="'+loader+'">';
             root.appendChild(newMask);
             body = document.getElementsByTagName('body')[0];
             body.style.overflow = 'hidden';
