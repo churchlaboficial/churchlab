@@ -40,18 +40,20 @@ class Models extends Component {
 
           switch(name) {
             case "lineOne":
-                var input = document.querySelector('input[name="lineOne"]');
+                var input = document.querySelector('textarea[name="lineOne"]');
                 input.setAttribute("maxlength", 35);
             break;
             case "lineTwo":
-                var input = document.querySelector('input[name="lineTwo"]');
+                var input = document.querySelector('textarea[name="lineTwo"]');
                 input.setAttribute("maxlength", 40);
             break;
             case "lineThree":
-                var input = document.querySelector('input[name="lineThree"]');
+                var input = document.querySelector('textarea[name="lineThree"]');
                 input.setAttribute("maxlength", 70);
             break;
-          }
+            
+            }
+
 
           document.getElementsByClassName(name)[0].innerHTML = value;
       }
@@ -364,9 +366,9 @@ class Models extends Component {
                             </div>
                             <input type="file" className="fileInput" onChange={this.handleBackgroundChange}  accept="image/*" />
                             
-                            <TextField variant="outlined" margin="normal" label="Data do culto" name="lineOne" placeholder="Domingo às 19h" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
-                            <TextField style={{ display: disableForm }} label="Nome dos convidados" margin="normal" placeholder="Pr. Silas Malafaia" variant="outlined" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
-                            <TextField label="Endereço da igreja" margin="normal" variant="outlined" name="lineThree" placeholder="Rua montevidéu, 900 - RJ" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
+                            <TextField multiline rowsMax={2} variant="outlined" margin="normal" label="Data do culto" name="lineOne" placeholder="Domingo às 19h" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
+                            <TextField multiline rowsMax={3} style={{ display: disableForm }} label="Nome dos convidados" margin="normal" placeholder="Pr. Silas Malafaia" variant="outlined" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
+                            <TextField multiline rowsMax={3} label="Endereço da igreja" margin="normal" variant="outlined" name="lineThree" placeholder="Rua montevidéu, 900 - RJ" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
                             
                             <div className="modelType">
                                 <Grid item xs={12}>

@@ -31,7 +31,7 @@
 /******* ROWS *********/
 .Familia .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 108px;
+    bottom: 315px;
     width: 800px;
     height: 120px;
     align-items: center;
@@ -78,7 +78,7 @@
 
 
 .Familia .lineThree {     
-    max-width: 545px;
+    max-width: 520px;
     line-height: 29px;
     text-align: left;
     font-size: 34px;
