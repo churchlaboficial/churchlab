@@ -196,3 +196,70 @@
     text-align: center;
     justify-content: center;
 }
+
+/******************************************/
+/******************************************/
+/************* WIDE WIDE WIDE *************/
+/******************************************/
+/******************************************/
+
+#root.wide .Celebracao #boxToEdit .defaultBackground{
+    background-image:url('./feed/default.png');
+}
+
+#root.wide .Celebracao .lineOne {
+    border: 3px solid;
+    padding: 15px 30px 15px 30px;
+    max-width: 395px;
+    /* height: 60px; */
+    font-size: 37px;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    line-height: 39px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    word-wrap: break-word;
+    display: block;
+    overflow: hidden;
+}
+
+#root.wide .Celebracao .lineTwo {
+    max-width: 330px;
+    line-height: 26px;
+    text-align: right;
+    font-size: 34px;
+    font-weight: 600;
+    position: absolute;
+    right: 0;
+    word-wrap: break-word;
+}
+
+
+#root.wide .Celebracao .lineThree {
+    max-width: 545px;
+    line-height: 29px;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+/******* ROWS *********/
+#root.wide .Celebracao .App-editor #boxToEdit .boxContent .row.rowOne {
+    position: absolute;
+    bottom: 240px;
+    width: 797px;
+    height: 200px;
+    align-items: center;
+}
+
+#root.wide .Celebracao .App-editor #boxToEdit .boxContent .row.rowTwo {
+    position: absolute;
+    bottom: 130px;
+    width: 800px;
+    height: 100px;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+}

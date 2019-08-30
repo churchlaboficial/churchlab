@@ -143,6 +143,11 @@ class Models extends Component {
                      defaultHeight = 1920;  
                  }
 
+                 if(document.getElementById('root').className === 'wide'){
+                     defaultWidth = 1920;
+                     defaultHeight = 1080;  
+                 }
+
                  domtoimage.toPng(node, {
                      width: defaultWidth,
                      height: defaultHeight,

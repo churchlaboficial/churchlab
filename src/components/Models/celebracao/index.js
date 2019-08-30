@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import './main.css';
 import '../../../story.css';
+import '../../../wide.css';
 import { FaImage } from 'react-icons/fa';
 import defaultImage from '../../../assets/img/default.png';
 import Models from '../models';

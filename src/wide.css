@@ -1,0 +1,29 @@
+#root.wide .App-header {
+    width: 10%;
+    background: transparent;
+}
+
+#root.wide .backButton {
+    position: fixed;
+    right: 35px;
+}
+
+#root.wide .App-editor,
+#root.wide .App-editor .container {
+    margin: 0;
+    align-items: center;
+    height: 100vh;
+}
+
+#root.wide .App-editor .container .contentBox {
+    zoom: 40%;
+}
+
+#root.wide .App-editor .container .contentFields {
+    justify-content: center;
+}
+
+#root.wide .App-editor #boxToEdit {
+    height: 1080px;
+    width: 1920px;
+}
