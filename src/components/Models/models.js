@@ -378,6 +378,7 @@ class Models extends Component {
                                     <ButtonGroup color="secondary" size="large" fullWidth aria-label="full width outlined button group">
                                       <Button onClick={this.changeModelType.bind(this)} >feed</Button>
                                       <Button onClick={this.changeModelType.bind(this)} >story</Button>
+                                      
                                     </ButtonGroup>
                                 </Grid>
                             </div>
