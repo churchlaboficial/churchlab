@@ -9,6 +9,7 @@ import domtoimage from 'dom-to-image';
 import Render from './components/Render/Render';
 import { saveAs } from 'file-saver';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 ///////////////// MODELS ///////////////////
 
@@ -127,7 +128,102 @@ class App extends React.Component {
     this.state = {
       step: 1,
       model:'',
+      username:'',
+      password:'',
+      userNiceName:'',
+      userEmail:'',
+      loggedIn: false,
+      loading: false,
+      error: ''
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.userLogout = this.userLogout.bind(this);
+  }
+  
+
+  userLogout(e) {
+    e.preventDefault();
+    console.log(e);
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+
+    this.setState({loggedIn: false, step: 1})
+  }
+
+  handleChange(e){
+
+    let target = e.target;
+    let value = target.value;
+    let name = target.name;
+
+    this.setState({
+        [name]: value
+    })
+
+  }
+
+  createUser(nonce){
+    axios.get('https://dev.zpixel.com.br/churchlab/api/user/register/?username='+this.state.username+'&email='+this.state.email+'&nonce=' + nonce + '&user_pass='+this.state.password+ '&display_name='+this.state.display_name+'&insecure=cool')
+    .then(res => {
+        const data = res.data;
+        console.log(data);
+    }).catch(error => {
+    console.log(error.response)
+  });
+  }
+
+  getWpNounce(){
+
+    axios.get('https://dev.zpixel.com.br/churchlab/api/get_nonce/?controller=user&method=register')
+    .then(res => {
+        console.log(res.data);
+        this.createUser(res.data.nonce);
+    }).catch(error => {
+        console.log(error.response);
+    })
+
+  }
+
+
+  handleSubmit(e){
+
+    e.preventDefault();
+    
+    const siteUrl = 'https://dev.zpixel.com.br/churchlab';
+    const loginData ={
+        username: this.state.username,
+        password: this.state.password,
+    }
+
+    this.setState({loading:true}, () => {
+       axios.post(`${siteUrl}/wp-json/jwt-auth/v1/token`, loginData)
+       .then( res=> {
+           if(undefined === res.data.token){
+               this.setState( { error: res.data.message, loading: false});
+               return;
+           }
+
+           localStorage.setItem('token', res.data.token);
+           localStorage.setItem('userName', res.data.user_nicename);
+
+           this.setState( { 
+               token: res.data.token, 
+               loading: false,
+               userNiceName: res.data.user_nicename,
+               userEmail: res.data.user_email,
+               loggedIn: true
+            });
+
+           console.log(res.data);
+       })
+       .catch( err =>{
+            this.setState( { error: err.response.data, loading: false});
+       })
+    })
+    
+    
   }
   
   _appBlockTypes(){
@@ -184,12 +280,44 @@ class App extends React.Component {
     } 
   }
 
+  _loggoutButton(){
+    return(
+      <div className="logout">
+          <a
+           onClick={ this.userLogout.bind(this) }>Logout</a>
+      </div>
+    )
+  }
 
+  
 
- 
   render() { 
-    return (
-      <main className="App-container">
+
+    if(this.setState.loggedIn === true || localStorage.getItem('token')){
+      return (
+        <main className="App-container">
+          <div className="AppBlockMobile">
+            <div className="AppBlockMobile__Container">
+              <img src={require('./assets/img/alert-icon.png')} />
+              Para melhor performance indicamos utilizar um computador para a criação das artes. 
+            </div>
+          </div>
+          <div className="App-header">
+          <img className="App-logo" src={require('./assets/img/logo.png')} />
+          {this._appBackButton()}
+          {this._loggoutButton()}
+          </div>
+          {this._appBlockTypes()}
+          {this._appEditor()}
+          {this._appRendering()}
+        </main>
+      )
+    }
+    else{
+
+      return ( 
+
+        <main className="App-container">
         <div className="AppBlockMobile">
           <div className="AppBlockMobile__Container">
             <img src={require('./assets/img/alert-icon.png')} />
@@ -198,13 +326,32 @@ class App extends React.Component {
         </div>
         <div className="App-header">
         <img className="App-logo" src={require('./assets/img/logo.png')} />
-        {this._appBackButton()}
+          {this._appBackButton()}
         </div>
-        {this._appBlockTypes()}
-        {this._appEditor()}
-        {this._appRendering()}
+      
+        <div className="loginForm step">
+          <div className="App">
+              <form onSubmit={this.handleSubmit}> 
+              <div className="form-group">
+                  <input name="username" value={this.state.username} onChange={this.handleChange} type="text" className="form-control" id="username" aria-describedby="user" placeholder="Usuário" />
+              </div>
+             
+              <div className="form-group">
+                  <input name="password" value={this.state.password} onChange={this.handleChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Senha" />
+              </div>
+             
+              <button type="submit" className="btn btn-primary">Enviar</button>
+              </form>
+          </div>
+        </div>
       </main>
-    )
+
+          
+         );
+
+  }
+    
+   
   }
 }
 

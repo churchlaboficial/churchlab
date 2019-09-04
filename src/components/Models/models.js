@@ -160,7 +160,7 @@ class Models extends Component {
                                
                 setTimeout(function(){
 
-                    body.style.overflow = 'auto';
+                    if(body) { body.style.overflow = 'auto'; }
                     document.getElementById('downloadMask').classList.add('hide');
                     document.getElementById('appNotification').classList.add('active');
 

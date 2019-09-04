@@ -31,13 +31,14 @@
   transition: .5s ease-in-out;
   position: fixed;
   bottom: -200px;
-  right: 20px;
+  right: 110px;
   background: #f79415;
   z-index: 99;
   padding: 20px;
   color: white;
   border-radius: 10px;
   flex-direction: column;
+  z-index: 99999999999999999999999999999999!important;
 }
 
 #appNotification h3, #appNotification h5 { margin: 0 }
@@ -45,6 +46,35 @@
 #appNotification.active{
   bottom: 40px!important;
 }
+
+
+/* Login Form */
+
+.loginForm .App .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm .App button {
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px;
+  background: #fe666d;
+}
+
+.loginForm .App .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
 
 #downloadMask.hide {
   display:none!important;
