@@ -284,7 +284,7 @@ class App extends React.Component {
     return(
       <div className="logout">
           <a
-           onClick={ this.userLogout.bind(this) }>Logout</a>
+           onClick={ this.userLogout.bind(this) }>Sair</a>
       </div>
     )
   }

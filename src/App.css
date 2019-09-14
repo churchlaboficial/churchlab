@@ -108,6 +108,10 @@
     z-index: 9;
 }
 
+.logout {
+  font-size: 16px;
+}
+
 .App-link {
   color: #61dafb;
 }
