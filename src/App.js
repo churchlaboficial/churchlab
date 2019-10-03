@@ -33,7 +33,7 @@ let ThemeContext = React.createContext('');
 
 
 let blockType = [
-  ["Celebração",  Celebracao],
+  ["Celebraçãoo",  Celebracao],
   ["Palavra",  Palavra],
   ["Oração",  Oracao],
   ["Vitória",  Vitoria],
