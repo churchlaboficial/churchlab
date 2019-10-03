@@ -63,6 +63,8 @@
     word-wrap: break-word;
     display: block;
     overflow: hidden;
+    width: 300px;
+    text-align: center;
 }
 
 .Celebracao .lineTwo {
@@ -83,6 +85,7 @@
     text-align: left;
     font-size: 34px;
     font-weight: 600;
+    width: 550px;
 }
 
 /******* EXPORT *********/
