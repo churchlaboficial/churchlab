@@ -63,8 +63,6 @@
     word-wrap: break-word;
     display: block;
     overflow: hidden;
-    width: 330px;
-    text-align: center;
 }
 
 .Oracao .lineTwo {
@@ -85,7 +83,6 @@
     text-align: left;
     font-size: 34px;
     font-weight: 600;
-    width: 545px;
 }
 
 /******* EXPORT *********/

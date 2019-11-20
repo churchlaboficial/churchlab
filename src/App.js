@@ -50,7 +50,7 @@ class GlobalHeading extends React.Component{
     return (
       <div className="App-global-heading">
         <div className="container">
-          <h3>Escolha o tipo de arte<br></br> de acordo com o culto que deseja1</h3>
+          <h3>Escolha o tipo de arte<br></br> de acordo com o culto que deseja</h3>
         </div>
       </div>
     )
@@ -191,7 +191,7 @@ class App extends React.Component {
 
     e.preventDefault();
     
-    const siteUrl = 'https://dev.zpixel.com.br/churchlab';
+    const siteUrl = 'https://churchlab.com.br/';
     const loginData ={
         username: this.state.username,
         password: this.state.password,
@@ -289,6 +289,17 @@ class App extends React.Component {
     )
   }
 
+
+
+  _appLoading(){
+    if(this.state.loading) {
+      return(
+        <div className="loadingText">
+            Carregando...
+        </div>
+      )
+    } 
+  }
   
 
   render() { 
@@ -341,6 +352,7 @@ class App extends React.Component {
               </div>
              
               <button type="submit" className="btn btn-primary">Enviar</button>
+              {this._appLoading()}
               </form>
           </div>
         </div>
