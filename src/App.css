@@ -247,3 +247,9 @@
   height: 1920px;
   width: 1080px;
 }
+
+.logo_filial{
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}

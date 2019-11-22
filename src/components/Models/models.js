@@ -7,24 +7,45 @@ import Grid from '@material-ui/core/Grid';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { FaImage } from 'react-icons/fa';
 import loader from '../../assets/img/loading.gif';
+import Select from 'react-select';
+import axios from 'axios';
 
 
 let backgroundImages = React.createContext('');
+
+let userAddress;
+let userFilial;
+let userHoster;
+let userPhone;
+let filialLogo;
+let filialInformation;
+
+
+let options = [ ];
+let filialOptions = '';
+
 
 class Models extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lineOne: this.props.datadia, lineTwo: this.props.dataautor, lineThree: this.props.dataendereco,
+            lineOne: this.props.datadia, 
+            lineTwo: this.props.dataautor, 
+            lineThree: this.props.dataendereco,
+            lineTwoPlaceholder:"Pr. Sergio da Cunha",
+            lineThreePlaceholder: "Rua montevidéu, 900 - RJ",
             backgroundImage: '',
             modelType: '',
             cultoType: this.props.cultoName,
+            filials: [],
+            loadingFilials: true,
             
       }
         this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
         this.handleBackgroundTemplate = this.handleBackgroundTemplate.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.changeModelType = this.changeModelType.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.changeModelType = this.changeModelType.bind(this);
+        this.onSelectChange = this.onSelectChange.bind(this);
       }
         handleInputChange(e){
             
@@ -58,6 +79,70 @@ class Models extends Component {
           document.getElementsByClassName(name)[0].innerHTML = value;
       }
 
+
+        onSelectChange = (event) => {
+              
+
+                localStorage.setItem('endereco', event.target.options[event.target.selectedIndex].getAttribute('address'));
+                localStorage.setItem('sede', event.target.value );
+                localStorage.setItem('pastor', event.target.options[event.target.selectedIndex].getAttribute('hoster'));
+                localStorage.setItem('telefone', event.target.options[event.target.selectedIndex].getAttribute('phone'));
+                localStorage.setItem('logo', event.target.options[event.target.selectedIndex].getAttribute('logo'));
+
+                filialInformation = React.createContext({
+                    name: event.target.value,
+                    address: event.target.options[event.target.selectedIndex].getAttribute('address'),
+                    hoster: event.target.options[event.target.selectedIndex].getAttribute('hoster'),
+                    phone: event.target.options[event.target.selectedIndex].getAttribute('phone'),
+                    logo: event.target.options[event.target.selectedIndex].getAttribute('logo'),
+                });
+
+                this.setState({
+                    sede: event.target.value
+                })
+
+            
+                window.updateTopMostParent(2); 
+
+                
+                let background = document.getElementById("filial_logo").src = localStorage.getItem('logo');
+            };
+
+
+   
+    async componentDidMount () {
+       await axios.get('https://churchlab.com.br/wp-json/api/getFilials/')
+      .then(res => {
+          options = res.data;
+            let teste = res.data.map(function(filial) {
+            filialOptions = filialOptions + ' <option name="filial" key="'+
+            filial.ID+'" value="'+
+            filial.sede+'">'+filial.sede+'</option>';
+            });
+
+            userAddress =  localStorage.getItem('endereco');
+            userHoster  =  localStorage.getItem('pastor');
+            filialLogo  =  localStorage.getItem('logo');
+
+            this.setState({
+                filials: res.data,
+                loadingFilials: false,
+                refresh: false,
+            })
+          
+      }).catch(error => {
+          console.log(error.response);
+      })
+       
+    }
+
+        async componentDidUpdate () {
+                userAddress =  localStorage.getItem('endereco');
+                userFilial  =  localStorage.getItem('sede');
+                userHoster  =  localStorage.getItem('pastor');
+                userPhone   =  localStorage.getItem('telefone');
+        }
+ 
     triggerInput = (event) => {
         document.querySelector("input[type='file']").click();
         this.setState({modelType: event.currentTarget.dataset.type});
@@ -96,6 +181,8 @@ class Models extends Component {
             background.src = "";
         }
     }
+
+    
 
     prepareDownload(event) {
 
@@ -221,9 +308,28 @@ class Models extends Component {
 
       
     render() {
-        
+
+       
         let renderBackgroundOptions;
         let positionBackground;
+        let lineOneContent;
+
+    
+        /* FILIAIS */
+
+        options.sort();
+        let listItems = options.map((filial) =>
+            <option 
+            value={filial.sede} 
+            address={filial.endereco} 
+            hoster={filial.pastor} 
+            phone={filial.telefone} 
+            logo={filial.logo}
+            key={filial.ID} 
+            name="filial">{filial.sede}
+            </option>
+        );
+
 
         if(backgroundImages._currentValue === "two"){
             let clearBoxToEdit = document.getElementById('boxToEdit');
@@ -313,7 +419,6 @@ class Models extends Component {
             var disableForm = "";
         }
 
-        console.log(disableForm);
 
         return (
             <MuiThemeProvider>
@@ -349,6 +454,9 @@ class Models extends Component {
                             </div>
                             <div className="defaultBackground feed">
                                 {this.props.structure}
+                                <div className="logo_filial">
+                                    <img id="filial_logo" src={localStorage.getItem('URL_IMG')} alt=""/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -369,9 +477,39 @@ class Models extends Component {
                             </div>
                             <input type="file" className="fileInput" onChange={this.handleBackgroundChange}  accept="image/*" />
                             
-                            <TextField multiline rowsMax={2} variant="outlined" margin="normal" label="Data do culto" name="lineOne" placeholder="Domingo às 19h" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
-                            <TextField multiline rowsMax={3} style={{ display: disableForm }} label="Nome dos convidados" margin="normal" placeholder="Pr. Silas Malafaia" variant="outlined" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
-                            <TextField multiline rowsMax={3} label="Endereço da igreja" margin="normal" variant="outlined" name="lineThree" placeholder="Rua montevidéu, 900 - RJ" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
+                            <TextField 
+                                multiline 
+                                rowsMax={2} 
+                                variant="outlined" margin="normal" 
+                                label="Data do culto" name="lineOne" 
+                                placeholder="Domingo às 19h" 
+                                onChange={this.handleInputChange.bind(this)} 
+                                value={this.state.lineOne} 
+                            />
+                            <TextField 
+                                multiline 
+                                rowsMax={3} 
+                                style={{ display: disableForm }} 
+                                label="Nome dos convidados" 
+                                margin="normal"
+                                id="lineTwo" 
+                                placeholder="Pr. Sergio da Cunha"
+                                variant="outlined" 
+                                name="lineTwo" 
+                                onChange={this.handleInputChange.bind(this)} 
+                                value={this.state.lineTwo} 
+                            />
+                            <TextField 
+                                multiline 
+                                rowsMax={3} 
+                                label="Endereço da igreja" 
+                                margin="normal" 
+                                variant="outlined" 
+                                name="lineThree" 
+                                placeholder="Rua montevidéu, 900 - RJ"
+                                onChange={this.handleInputChange.bind(this)} 
+                                value={this.state.lineThree} 
+                            />
                             
                             <div className="modelType">
                                 <Grid item xs={12}>
@@ -382,6 +520,20 @@ class Models extends Component {
                                     </ButtonGroup>
                                 </Grid>
                             </div>
+
+                            <div className="filials">
+                                <Grid item xs={12}>
+                                    <select 
+                                    onChange={this.onSelectChange} 
+                                    name="" 
+                                    id="select-filials" 
+                                    address={this.state.currentAddress}>
+                                        <option value="">Selecione a filial</option>
+                                        {listItems}
+                                    </select>
+                                </Grid>
+
+                             </div>
 
 
                             <Button size="large" onClick={this.prepareDownload} variant="contained" className="buttonGerar">

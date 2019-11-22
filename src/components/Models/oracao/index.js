@@ -30,10 +30,10 @@ class Oracao extends Component {
             <div className="boxContent">
                 <div className="row rowOne">
                     <div className="lineOne">{this.state.data}</div>
-                    <div className="lineTwo">{this.state.autor}</div>
+                    <div className="lineTwo">{localStorage.getItem('pastor') ? localStorage.getItem('pastor') : this.state.autor}</div>
                 </div>
                 <div className="row rowTwo">
-                    <div className="lineThree">{this.state.endereco}</div>
+                    <div className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</div>
                 </div>
             </div>
 

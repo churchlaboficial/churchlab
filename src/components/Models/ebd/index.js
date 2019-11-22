@@ -32,7 +32,7 @@ class EBD extends Component {
                     <div className="lineOne">{this.state.data}</div>
                 </div>
                 <div className="row rowTwo">
-                    <div className="lineThree">{this.state.endereco}</div>
+                    <div className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</div>
                 </div>
             </div>
 

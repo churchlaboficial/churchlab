@@ -105,6 +105,7 @@ class Editor extends Component {
 
 
     render() { 
+      console.log('editor');
 
       let Module;
       blockType.map( function( modules, i, array ) {
@@ -165,7 +166,7 @@ class App extends React.Component {
   }
 
   createUser(nonce){
-    axios.get('https://dev.zpixel.com.br/churchlab/api/user/register/?username='+this.state.username+'&email='+this.state.email+'&nonce=' + nonce + '&user_pass='+this.state.password+ '&display_name='+this.state.display_name+'&insecure=cool')
+    axios.get('https://churchlab.com.br/api/user/register/?username='+this.state.username+'&email='+this.state.email+'&nonce=' + nonce + '&user_pass='+this.state.password+ '&display_name='+this.state.display_name+'&insecure=cool')
     .then(res => {
         const data = res.data;
         console.log(data);
@@ -176,7 +177,7 @@ class App extends React.Component {
 
   getWpNounce(){
 
-    axios.get('https://dev.zpixel.com.br/churchlab/api/get_nonce/?controller=user&method=register')
+    axios.get('https://churchlab.com.br/api/get_nonce/?controller=user&method=register')
     .then(res => {
         console.log(res.data);
         this.createUser(res.data.nonce);
@@ -204,6 +205,8 @@ class App extends React.Component {
                this.setState( { error: res.data.message, loading: false});
                return;
            }
+
+           console.log(res.data);
 
            localStorage.setItem('token', res.data.token);
            localStorage.setItem('userName', res.data.user_nicename);
