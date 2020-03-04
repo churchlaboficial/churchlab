@@ -16,20 +16,14 @@
 
 
 .Celebracao .App-editor #boxToEdit .boxContent {
+    position: absolute;
     bottom: 25px;
     width: 100%;
-    height: 100%;
-    padding: 0 6.6%;
+    padding: 0 13%;
     color: white;
     box-sizing: border-box;
 }
 .Celebracao .App-editor #boxToEdit .boxContent .row {
-    display: block;
-    justify-content: space-between;
-}
-
-/******* LINES *********/
-.Celebracao .App-editor #boxToEdit .boxContent .row .line{
     display: flex;
     justify-content: space-between;
 }
@@ -37,11 +31,10 @@
 /******* ROWS *********/
 .Celebracao .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 76px;
-    width: 930px;
-    overflow: inherit;
+    bottom: 108px;
+    width: 800px;
+    height: 120px;
     align-items: center;
-    display: block;
 }
 
 .Celebracao .App-editor #boxToEdit .boxContent .row.rowTwo {
@@ -54,47 +47,42 @@
 
 /******* LINES *********/
 
-.Celebracao .lineOnea {
+.Celebracao .lineOne {
+    border: 3px solid;
+    padding: 15px 30px 15px 30px;
     max-width: 395px;
     /* height: 60px; */
-    font-size: 29px;
+    font-size: 37px;
     margin: 0;
     font-weight: 600;
     display: flex;
     line-height: 39px;
     align-items: center;
     justify-content: center;
+    position: absolute;
     word-wrap: break-word;
     display: block;
     overflow: hidden;
-    text-transform: uppercase;
 }
 
 .Celebracao .lineTwo {
     max-width: 330px;
     line-height: 26px;
     text-align: right;
-    font-size: 29px;
+    font-size: 34px;
     font-weight: 600;
-    position: relative;
-    text-transform: uppercase;
+    position: absolute;
     right: 0;
     word-wrap: break-word;
-    display: flex;
-    align-items: center;
 }
 
 
-.Celebracao .lineThreee {
-    justify-content: flex-end;
-    display: flex;
-    flex-direction: column;
-    max-width: 530px;
+.Celebracao .lineThree {     
+    max-width: 545px;
     line-height: 29px;
     text-align: left;
-    font-size: 29px;
+    font-size: 34px;
     font-weight: 600;
-    text-transform: uppercase;
 }
 
 /******* EXPORT *********/

@@ -170,7 +170,7 @@
 
 /* Block Types */
 
-.App-container .blockTypes  { 
+.App-container .blockTypes  {
   margin-top: 20px;
 }
 
@@ -218,7 +218,7 @@
   margin-left: auto;
 }
 
-/* 
+/*
 
 @media (min-width: 576px) {
   .container {
@@ -250,6 +250,12 @@
 
 .logo_filial{
   position: absolute;
-  bottom: 10px;
-  right: 20px;
+  top: 76px;
+  right: 0;
+  width: 77px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
