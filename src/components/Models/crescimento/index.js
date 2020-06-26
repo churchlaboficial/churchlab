@@ -14,31 +14,31 @@ import filialName from '../models';
 let dataStructure;
 
 
-class Celebracao extends Component {
+class Crescimento extends Component {
     constructor(){
         super();
         this.state = {
-            data: 'domingo às 19h', 
+            data: 'domingo às 19h',
             autor: 'Pr. Silas Malafaia',
-            endereco: 'rua montevidéu, 900 penha - rj', 
+            endereco: 'rua montevidéu, 900 penha - rj',
             backgroundImage: '',
             modelType: '',
-            sede: '',
-            culto: 'Celebracao',
-            telefone: ''
+            culto: 'Crescimento',
         }
     }
-      
+
     render() {
 
-        dataStructure = 
+        dataStructure =
             <div className="boxContent">
                 <div className="row rowOne">
-                    <div className="lineOne">{this.state.data}</div>
-                    <div className="lineTwo">{localStorage.getItem('pastor') ? localStorage.getItem('pastor') : this.state.autor}</div>
-                </div>
-                <div className="row rowTwo">
-                    <div className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</div>
+                    <div className="line Two">
+                        <div className="lineThreee">
+                          <span className="lineOne">{this.state.data}</span>
+                          <span className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</span></div>
+                        <div className="lineTwo">
+                          <span>{localStorage.getItem('pastor') ? localStorage.getItem('pastor') : this.state.autor}</span></div>
+                    </div>
                 </div>
             </div>
 
@@ -50,4 +50,4 @@ class Celebracao extends Component {
     }
 }
 
-export default Celebracao;
+export default Crescimento;

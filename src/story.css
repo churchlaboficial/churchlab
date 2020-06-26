@@ -1,11 +1,5 @@
 #root.story .App-header {
-    width: 10%;
     background: transparent;
-}
-
-#root.story .backButton {
-    position: fixed;
-    right: 35px;
 }
 
 #root.story .App-editor,

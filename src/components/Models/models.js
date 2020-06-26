@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
@@ -106,7 +106,38 @@ class Models extends Component {
 
 
                 let background = document.getElementById("filial_logo").src = localStorage.getItem('logo');
+                this.getBase64Image(background, function(base64image){
+                     console.log(base64image);
+                });
+                console.log(background);
+
             };
+
+    getBase64Image(imgUrl, callback) {
+
+    var img = new Image();
+
+    // onload fires when the image is fully loadded, and has width and height
+
+    img.onload = function(){
+
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var dataURL = canvas.toDataURL("image/png"),
+          dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+      callback(dataURL); // the base64 string
+
+    };
+
+    // set attributes and src 
+    img.setAttribute('crossOrigin', 'anonymous'); //
+    img.src = imgUrl;
+
+}
 
 
 
@@ -462,10 +493,9 @@ class Models extends Component {
                     </div>
                     <div className="contentFields">
                         <div className="fields">
-                            <h4 className="backgroundTitle">Selecione o fundo da sua arte</h4>
                             <div className="imgChange" id="dumpoption" onClick={this.handleBackgroundTemplate}>
                                 <FaImage/>
-                                <div style={{ color: 'white', marginLeft: '10px' }}>Clique aqui</div>
+                                <div style={{ color: 'white', marginLeft: '10px' }}>Escolha a foto de fundo</div>
                             </div>
 
                             <div className="imgChangeOptions">
