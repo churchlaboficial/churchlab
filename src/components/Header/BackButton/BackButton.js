@@ -18,7 +18,7 @@ class BackButton extends Component {
         return ( 
           <div className="item" 
             onClick={ this.updateBackButton.bind(this) }
-            > <FaArrowCircleLeft />
+            > <FaArrowCircleLeft /> <span style={{fontSize:'12px', marginLeft:'8px'}}>Voltar</span>
           </div>
          );
       }

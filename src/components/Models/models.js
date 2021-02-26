@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
@@ -7,27 +7,48 @@ import Grid from '@material-ui/core/Grid';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { FaImage } from 'react-icons/fa';
 import loader from '../../assets/img/loading.gif';
+import Select from 'react-select';
+import axios from 'axios';
 
 
 let backgroundImages = React.createContext('');
+
+let userAddress;
+let userFilial;
+let userHoster;
+let userPhone;
+let filialLogo;
+let filialInformation;
+
+
+let options = [ ];
+let filialOptions = '';
+
 
 class Models extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lineOne: this.props.datadia, lineTwo: this.props.dataautor, lineThree: this.props.dataendereco,
+            lineOne: this.props.datadia,
+            lineTwo: this.props.dataautor,
+            lineThree: this.props.dataendereco,
+            lineTwoPlaceholder:"Pr. Sergio da Cunha",
+            lineThreePlaceholder: "Rua montevidéu, 900 - RJ",
             backgroundImage: '',
             modelType: '',
             cultoType: this.props.cultoName,
-            
+            filials: [],
+            loadingFilials: true,
+
       }
         this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
         this.handleBackgroundTemplate = this.handleBackgroundTemplate.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.changeModelType = this.changeModelType.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.changeModelType = this.changeModelType.bind(this);
+        this.onSelectChange = this.onSelectChange.bind(this);
       }
         handleInputChange(e){
-            
+
           const target = e.target;
           const value = target.type === 'checkbox' ? target.checked : target.value;
           const name = target.name;
@@ -51,17 +72,112 @@ class Models extends Component {
                 var input = document.querySelector('textarea[name="lineThree"]');
                 input.setAttribute("maxlength", 70);
             break;
-            
+
             }
 
 
           document.getElementsByClassName(name)[0].innerHTML = value;
       }
 
+
+        onSelectChange = (event) => {
+
+
+                localStorage.setItem('endereco', event.target.options[event.target.selectedIndex].getAttribute('address'));
+                localStorage.setItem('sede', event.target.value );
+                localStorage.setItem('pastor', event.target.options[event.target.selectedIndex].getAttribute('hoster'));
+                localStorage.setItem('telefone', event.target.options[event.target.selectedIndex].getAttribute('phone'));
+                localStorage.setItem('logo', event.target.options[event.target.selectedIndex].getAttribute('logo'));
+
+                filialInformation = React.createContext({
+                    name: event.target.value,
+                    address: event.target.options[event.target.selectedIndex].getAttribute('address'),
+                    hoster: event.target.options[event.target.selectedIndex].getAttribute('hoster'),
+                    phone: event.target.options[event.target.selectedIndex].getAttribute('phone'),
+                    logo: event.target.options[event.target.selectedIndex].getAttribute('logo'),
+                });
+
+                this.setState({
+                    sede: event.target.value
+                })
+
+
+                window.updateTopMostParent(2);
+
+
+                let background = document.getElementById("filial_logo").src = localStorage.getItem('logo');
+                this.getBase64Image(background, function(base64image){
+                     console.log(base64image);
+                });
+                console.log(background);
+
+            };
+
+    getBase64Image(imgUrl, callback) {
+
+    var img = new Image();
+
+    // onload fires when the image is fully loadded, and has width and height
+
+    img.onload = function(){
+
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var dataURL = canvas.toDataURL("image/png"),
+          dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+      callback(dataURL); // the base64 string
+
+    };
+
+    // set attributes and src 
+    img.setAttribute('crossOrigin', 'anonymous'); //
+    img.src = imgUrl;
+
+}
+
+
+
+    async componentDidMount () {
+       await axios.get('https://churchlab.com.br/wp-json/api/getFilials/')
+      .then(res => {
+          options = res.data;
+            let teste = res.data.map(function(filial) {
+            filialOptions = filialOptions + ' <option name="filial" key="'+
+            filial.ID+'" value="'+
+            filial.sede+'">'+filial.sede+'</option>';
+            });
+
+            userAddress =  localStorage.getItem('endereco');
+            userHoster  =  localStorage.getItem('pastor');
+            filialLogo  =  localStorage.getItem('logo');
+
+            this.setState({
+                filials: res.data,
+                loadingFilials: false,
+                refresh: false,
+            })
+
+      }).catch(error => {
+          console.log(error.response);
+      })
+
+    }
+
+        async componentDidUpdate () {
+                userAddress =  localStorage.getItem('endereco');
+                userFilial  =  localStorage.getItem('sede');
+                userHoster  =  localStorage.getItem('pastor');
+                userPhone   =  localStorage.getItem('telefone');
+        }
+
     triggerInput = (event) => {
         document.querySelector("input[type='file']").click();
         this.setState({modelType: event.currentTarget.dataset.type});
-        
+
     }
 
     handleBackgroundTemplate(e) {
@@ -80,8 +196,8 @@ class Models extends Component {
         else if(this.state.modelType == 'dual-two'){
             background = document.getElementById('dual-two');
         }
-        
-       
+
+
         const file = e.target.files[0];
         const reader = new FileReader();
 
@@ -89,13 +205,15 @@ class Models extends Component {
             background.src = reader.result;
             background.style.backgroundImage = "url('"+reader.result+"')";
         }
-        
+
         if (file) {
         reader.readAsDataURL(file);
         } else {
             background.src = "";
         }
     }
+
+
 
     prepareDownload(event) {
 
@@ -118,7 +236,7 @@ class Models extends Component {
 
         }
 
-        setTimeout(function(){ 
+        setTimeout(function(){
             // Add Export Class and Download image //
             document.getElementById('boxToEdit').classList.add('export');
 
@@ -130,7 +248,7 @@ class Models extends Component {
                  let formatedDate = date.getDate() + '/'+ (date.getMonth() + 1) + '/'+ date.getFullYear()+ '-'+ date.getHours()+ '-'+ date.getMinutes()+ '-'+ date.getSeconds();
                  let node = document.getElementById('boxToEdit');
 
-             
+
                  var canvas = document.getElementById("canvas"),
                  html_container = document.getElementById("boxToEdit"),
                  html = html_container.innerHTML;
@@ -140,12 +258,12 @@ class Models extends Component {
 
                  if(document.getElementById('root').className === 'story'){
                      defaultWidth = 1080;
-                     defaultHeight = 1920;  
+                     defaultHeight = 1920;
                  }
 
                  if(document.getElementById('root').className === 'wide'){
                      defaultWidth = 1920;
-                     defaultHeight = 1080;  
+                     defaultHeight = 1080;
                  }
 
                  domtoimage.toPng(node, {
@@ -157,7 +275,7 @@ class Models extends Component {
                  });
 
                  document.getElementById('boxToEdit').classList.remove('export');
-                               
+
                 setTimeout(function(){
 
                     if(body) { body.style.overflow = 'auto'; }
@@ -169,9 +287,9 @@ class Models extends Component {
                     }, 4500);
 
                 }, 1000);
-                
+
              }, 1000);
-        
+
         }, 500);
 
     }
@@ -207,23 +325,42 @@ class Models extends Component {
     changeBackgroundUploadModel(event){
         event.preventDefault();
         backgroundImages = React.createContext(event.currentTarget.dataset.images);
-  
+
         if(backgroundImages._currentValue == 'two'){
           document.getElementsByClassName('dualBackground')[0].classList.add('active');
         }
-  
+
         let backgroundOptions = document.getElementsByClassName('backgroundOptions')[0];
         backgroundOptions.classList.remove('active');
-  
+
         this.forceUpdate();
-        
+
     }
 
-      
+
     render() {
-        
+
+
         let renderBackgroundOptions;
         let positionBackground;
+        let lineOneContent;
+
+
+        /* FILIAIS */
+
+        options.sort();
+        let listItems = options.map((filial) =>
+            <option
+            value={filial.sede}
+            address={filial.endereco}
+            hoster={filial.pastor}
+            phone={filial.telefone}
+            logo={filial.logo}
+            key={filial.ID}
+            name="filial">{filial.sede}
+            </option>
+        );
+
 
         if(backgroundImages._currentValue === "two"){
             let clearBoxToEdit = document.getElementById('boxToEdit');
@@ -236,7 +373,7 @@ class Models extends Component {
             if(changeBackgroundType) changeBackgroundType.classList.add('active');
             if(clearBoxToEdit) clearBoxToEdit.style.backgroundImage = '';
 
-            positionBackground = 
+            positionBackground =
                 <div className="backgroundPosition dual">
                     <div className="box">
                         <select name="position" data-id="dual-one" onChange={this.handleBackgroundPosition.bind(this)}>
@@ -260,7 +397,7 @@ class Models extends Component {
                     </div>
                  </div>;
 
-            renderBackgroundOptions = 
+            renderBackgroundOptions =
             <div className="options dual">
                 <div className="imgChange" data-type="dual-one" onClick={this.triggerInput.bind(this)}>
                     <FaImage/>
@@ -280,8 +417,8 @@ class Models extends Component {
             if(dumpoption) dumpoption.classList.add('hide');
             if(changeBackgroundType) changeBackgroundType.classList.add('active');
             if(dualBackground) dualBackground.classList.remove('active');
-            
-            positionBackground = 
+
+            positionBackground =
             <div className="backgroundPosition single">
                 <div className="box">
                     <select name="position" data-id="single" onChange={this.handleBackgroundPosition.bind(this)}>
@@ -295,14 +432,14 @@ class Models extends Component {
                 </div>
              </div>;
 
-            renderBackgroundOptions = 
+            renderBackgroundOptions =
             <div className="options single">
                 <div className="imgChange" data-type="single"  onClick={this.triggerInput.bind(this)}>
                     <FaImage/>
                 </div>
             </div>
         }
-        
+
         let baseBackground = this.state.backgroundImage.toString();
 
         // desatibiliar inputs de acordo com o culto
@@ -313,7 +450,6 @@ class Models extends Component {
             var disableForm = "";
         }
 
-        console.log(disableForm);
 
         return (
             <MuiThemeProvider>
@@ -349,15 +485,17 @@ class Models extends Component {
                             </div>
                             <div className="defaultBackground feed">
                                 {this.props.structure}
+                                <div className="logo_filial">
+                                    <img id="filial_logo" src={localStorage.getItem('URL_IMG')} alt=""/>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="contentFields">
                         <div className="fields">
-                            <h4 className="backgroundTitle">Selecione o fundo da sua arte</h4>
                             <div className="imgChange" id="dumpoption" onClick={this.handleBackgroundTemplate}>
                                 <FaImage/>
-                                <div style={{ color: 'white', marginLeft: '10px' }}>Clique aqui</div>
+                                <div style={{ color: 'white', marginLeft: '10px' }}>Escolha a foto de fundo</div>
                             </div>
 
                             <div className="imgChangeOptions">
@@ -368,17 +506,62 @@ class Models extends Component {
                                 </Button>
                             </div>
                             <input type="file" className="fileInput" onChange={this.handleBackgroundChange}  accept="image/*" />
-                            
-                            <TextField multiline rowsMax={2} variant="outlined" margin="normal" label="Data do culto" name="lineOne" placeholder="Domingo às 19h" onChange={this.handleInputChange.bind(this)} value={this.state.lineOne} />
-                            <TextField multiline rowsMax={3} style={{ display: disableForm }} label="Nome dos convidados" margin="normal" placeholder="Pr. Silas Malafaia" variant="outlined" name="lineTwo" onChange={this.handleInputChange.bind(this)} value={this.state.lineTwo} />
-                            <TextField multiline rowsMax={3} label="Endereço da igreja" margin="normal" variant="outlined" name="lineThree" placeholder="Rua montevidéu, 900 - RJ" onChange={this.handleInputChange.bind(this)} value={this.state.lineThree} />
-                            
+
+                            <TextField
+                                multiline
+                                rowsMax={2}
+                                variant="outlined" margin="normal"
+                                label="Data do culto" name="lineOne"
+                                placeholder="Domingo às 19h"
+                                onChange={this.handleInputChange.bind(this)}
+                                value={this.state.lineOne}
+                            />
+                            <TextField
+                                multiline
+                                rowsMax={3}
+                                style={{ display: disableForm }}
+                                label="Nome dos convidados"
+                                margin="normal"
+                                id="lineTwo"
+                                placeholder="Pr. Sergio da Cunha"
+                                variant="outlined"
+                                name="lineTwo"
+                                onChange={this.handleInputChange.bind(this)}
+                                value={this.state.lineTwo}
+                            />
+                            <TextField
+                                multiline
+                                rowsMax={3}
+                                label="Endereço da igreja"
+                                margin="normal"
+                                variant="outlined"
+                                name="lineThree"
+                                placeholder="Rua montevidéu, 900 - RJ"
+                                onChange={this.handleInputChange.bind(this)}
+                                value={this.state.lineThree}
+                            />
+
+                            <div className="filials">
+                                <Grid item xs={12}>
+                                    <select
+                                    onChange={this.onSelectChange}
+                                    name=""
+                                    id="select-filials"
+                                    address={this.state.currentAddress}>
+                                        <option value="">Selecione a filial</option>
+                                        {listItems}
+                                    </select>
+                                </Grid>
+
+                             </div>
+
                             <div className="modelType">
                                 <Grid item xs={12}>
                                     <ButtonGroup color="secondary" size="large" fullWidth aria-label="full width outlined button group">
                                       <Button onClick={this.changeModelType.bind(this)} >feed</Button>
                                       <Button onClick={this.changeModelType.bind(this)} >story</Button>
-                                      
+                                      <Button onClick={this.changeModelType.bind(this)} >wide</Button>
+
                                     </ButtonGroup>
                                 </Grid>
                             </div>

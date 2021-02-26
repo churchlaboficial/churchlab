@@ -13,13 +13,18 @@ import axios from 'axios';
 
 ///////////////// MODELS ///////////////////
 
+import Avivamento from './components/Models/avivamento';
+import Bereana from './components/Models/bereana';
 import Celebracao from './components/Models/celebracao';
+import Crescimento from './components/Models/crescimento';
 import Ebd from './components/Models/ebd';
 import Familia from './components/Models/familia';
 import MulherVitoriosa from './components/Models/mulher-vitoriosa';
 import Oracao from './components/Models/oracao';
 import Palavra from './components/Models/palavra';
 import SantaCeia from './components/Models/santa-ceia';
+import Sobrenatural from './components/Models/sobrenatural';
+import TardeBencao from './components/Models/tarde-bencao';
 import Vitoria from './components/Models/vitoria';
 import Models from './components/Models/models';
 
@@ -34,14 +39,23 @@ let ThemeContext = React.createContext('');
 
 let blockType = [
   ["Celebração",  Celebracao],
-  ["Palavra",  Palavra],
-  ["Oração",  Oracao],
-  ["Vitória",  Vitoria],
   ["EBD",  Ebd],
-  ["Santa Ceia",  SantaCeia],
+  ["Familia",  Familia],
   ["Mulher Vitoriosa",  MulherVitoriosa],
-  ["Família",  Familia],
+  ["Oração",  Oracao],
+  ["Palavra",  Palavra],
+  ["Santa Ceia",  SantaCeia],
+  ["Vitória",  Vitoria],
 ];
+
+let bloco = [
+  ["Avivamento",  Avivamento],
+  ["Bereana",  Bereana],
+  ["Crescimento",  Crescimento],
+  ["Sobrenatural",  Sobrenatural],
+  ["Tarde da Benção",  TardeBencao],
+];
+
 var slugify = require('slugify');
 
 
@@ -105,9 +119,16 @@ class Editor extends Component {
 
 
     render() { 
+      console.log('editor');
 
       let Module;
       blockType.map( function( modules, i, array ) {
+        if(modules[0] == ThemeContext._currentValue){
+          Module = modules[1];
+        }
+      })
+
+      bloco.map( function( modules, i, array ) {
         if(modules[0] == ThemeContext._currentValue){
           Module = modules[1];
         }
@@ -165,7 +186,7 @@ class App extends React.Component {
   }
 
   createUser(nonce){
-    axios.get('https://dev.zpixel.com.br/churchlab/api/user/register/?username='+this.state.username+'&email='+this.state.email+'&nonce=' + nonce + '&user_pass='+this.state.password+ '&display_name='+this.state.display_name+'&insecure=cool')
+    axios.get('https://churchlab.com.br/api/user/register/?username='+this.state.username+'&email='+this.state.email+'&nonce=' + nonce + '&user_pass='+this.state.password+ '&display_name='+this.state.display_name+'&insecure=cool')
     .then(res => {
         const data = res.data;
         console.log(data);
@@ -176,7 +197,7 @@ class App extends React.Component {
 
   getWpNounce(){
 
-    axios.get('https://dev.zpixel.com.br/churchlab/api/get_nonce/?controller=user&method=register')
+    axios.get('https://churchlab.com.br/api/get_nonce/?controller=user&method=register')
     .then(res => {
         console.log(res.data);
         this.createUser(res.data.nonce);
@@ -191,7 +212,7 @@ class App extends React.Component {
 
     e.preventDefault();
     
-    const siteUrl = 'https://churchlab.com.br/';
+    const siteUrl = 'https://churchlab.com.br';
     const loginData ={
         username: this.state.username,
         password: this.state.password,
@@ -204,6 +225,8 @@ class App extends React.Component {
                this.setState( { error: res.data.message, loading: false});
                return;
            }
+
+           console.log(res.data);
 
            localStorage.setItem('token', res.data.token);
            localStorage.setItem('userName', res.data.user_nicename);
@@ -232,17 +255,39 @@ class App extends React.Component {
         <div id="step-1" className="step">
           
           <GlobalHeading/>
-          <div className="blockTypes container">
-            <div className="models">
-              {blockType.map(
-                blockType => 
-                  <Blocks 
-                    
-                    title={blockType[0]} 
-                    key={blockType[0]}
-                  />
-              )} 
+          <div>
+            <div className="blockTypes container">
+              <div className="titlesCategory">
+                Cultos Principais
+              </div>
+              <div className="models">
+                {blockType.map(
+                  blockType => 
+                    <Blocks 
+                      
+                      title={blockType[0]} 
+                      key={blockType[0]}
+                    />
+                )} 
+              </div>
             </div>
+
+            <div className="blockTypes container">
+              <div className="titlesCategory">
+                Outros Cultos
+              </div>
+              <div className="models">
+                {bloco.map(
+                  bloco => 
+                    <Blocks 
+                      
+                      title={bloco[0]} 
+                      key={bloco[0]}
+                    />
+                )} 
+              </div>
+            </div>
+            <div className="footer">"O Pai da criação nos inspira a criar" <span className="heartIcon">&nbsp; &hearts; &nbsp; </span>Churchlab, 2020</div>
           </div>
         </div>
       )
@@ -284,7 +329,7 @@ class App extends React.Component {
     return(
       <div className="logout">
           <a
-           onClick={ this.userLogout.bind(this) }>Sair</a>
+           onClick={ this.userLogout.bind(this) }>Fazer Logout</a>
       </div>
     )
   }
@@ -314,8 +359,10 @@ class App extends React.Component {
             </div>
           </div>
           <div className="App-header">
-          <img className="App-logo" src={require('./assets/img/logo.png')} />
-          {this._appBackButton()}
+            <div className="App-actions">
+              <img className="App-logo" src={require('./assets/img/logo.png')} />
+              {this._appBackButton()}
+            </div>
           {this._loggoutButton()}
           </div>
           {this._appBlockTypes()}

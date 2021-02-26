@@ -32,6 +32,10 @@
     }
 }
 
+.MuiFormControl-marginNormal {
+  margin-top: 4px !important;
+}
+
 #step-2 * {
     transition: .5s ease-in-out;
 }
@@ -42,6 +46,12 @@
 
 .backButton {
     cursor: pointer;
+    margin-left: 10px;
+}
+
+.backButton .item {
+    display: flex;
+    align-items: center;
 }
 
 .App-editor, .App-editor .container {
@@ -91,7 +101,7 @@
     zoom: 30%;
   }
 }
- 
+
 .contentFields {
     background: #262b33;
     flex: 3 1;
@@ -107,7 +117,7 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    
+
 }
 
 .contentFields .fields .backgroundTitle {
@@ -194,13 +204,13 @@
 }
 
 .imgChange {
-    height: 150px;
+    height: 90px;
     border-radius: 10px;
     border: 2px dashed #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
     transition: .1s ease-in-out;
     outline: none;
 }
@@ -220,7 +230,7 @@
     transition: .1s ease-in-out;
 }
 
-.fileInput { 
+.fileInput {
     display:none;
 }
 
@@ -305,14 +315,14 @@
 
 .imgChangeOptions .imgChange {
     flex: 1;
-    height: 180px;
+    height: 90px;
     margin: 5px;
 }
 
 
 .changeBackgroundType {
     display: none;
- 
+
 }
 
 .backgroundPosition {
@@ -348,3 +358,25 @@
   word-break: break-word;
 }
 
+
+
+
+/* Filiais */
+
+#select-filials {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: white;
+    font-weight: 200 !important;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    background: transparent;
+    padding: 18.5px 14px;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+
+#select-filials option {
+    background: #262b33;
+}

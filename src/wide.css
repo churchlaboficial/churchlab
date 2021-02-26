@@ -1,11 +1,5 @@
 #root.wide .App-header {
-    width: 10%;
     background: transparent;
-}
-
-#root.wide .backButton {
-    position: fixed;
-    right: 35px;
 }
 
 #root.wide .App-editor,
