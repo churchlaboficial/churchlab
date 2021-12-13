@@ -15,14 +15,18 @@ import axios from 'axios';
 
 import Avivamento from './components/Models/avivamento';
 import Bereana from './components/Models/bereana';
+import CasaisVitoriosos from './components/Models/casais-vitoriosos';
 import Celebracao from './components/Models/celebracao';
+import Connect from './components/Models/connect';
 import Crescimento from './components/Models/crescimento';
 import Ebd from './components/Models/ebd';
+import EscolaPais from './components/Models/escola-pais';
 import Familia from './components/Models/familia';
 import MulherVitoriosa from './components/Models/mulher-vitoriosa';
 import Oracao from './components/Models/oracao';
 import Palavra from './components/Models/palavra';
 import SantaCeia from './components/Models/santa-ceia';
+import SegundaDiferente from './components/Models/segunda-diferente';
 import Sobrenatural from './components/Models/sobrenatural';
 import TardeBencao from './components/Models/tarde-bencao';
 import Vitoria from './components/Models/vitoria';
@@ -45,14 +49,18 @@ let blockType = [
   ["Oração",  Oracao],
   ["Palavra",  Palavra],
   ["Santa Ceia",  SantaCeia],
+  ["Sobrenatural",  Sobrenatural],
   ["Vitória",  Vitoria],
 ];
 
 let bloco = [
   ["Avivamento",  Avivamento],
   ["Bereana",  Bereana],
+  ["Connect",  Connect],
   ["Crescimento",  Crescimento],
-  ["Sobrenatural",  Sobrenatural],
+  ["Escola Pais",  EscolaPais],
+  ["Segunda Diferente",  SegundaDiferente],
+  ["Casais Vitoriosos",  CasaisVitoriosos],
   ["Tarde da Benção",  TardeBencao],
 ];
 

@@ -353,9 +353,17 @@
 
 /* All edition */
 .lineOne, .lineTwo, .lineThree {
-  white-space: pre-line;
-  /* overflow: auto; */
-  word-break: break-word;
+    white-space: pre-line;
+    /* overflow: auto; */
+    word-break: break-word;
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 45px;
+}
+.linesBottom {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 

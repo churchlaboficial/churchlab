@@ -14,16 +14,16 @@ import filialName from '../models';
 let dataStructure;
 
 
-class Vitoria extends Component {
+class Avivamento extends Component {
     constructor(){
         super();
         this.state = {
-            data: 'Quinta-feira às 19h',
+            data: 'domingo às 19h',
             autor: 'Pr. Silas Malafaia',
             endereco: 'rua montevidéu, 900 penha - rj',
             backgroundImage: '',
             modelType: '',
-            culto: 'Vitoria',
+            culto: 'Avivamento',
         }
     }
 
@@ -34,14 +34,10 @@ class Vitoria extends Component {
                 <div className="row rowOne">
                     <div className="line Two">
                         <div className="lineThreee">
+                          <span className="lineOne">{this.state.data}</span>
+                          <span className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</span></div>
                         <div className="lineTwo">
-                          <span>{this.state.autor}</span></div>
-                          <div className="linesBottom">
-                            <span className="lineOne">{this.state.data}</span>
-                            <span className="lineThree">{this.state.endereco}</span></div>
-                          </div>
-                          <div className="lineFour">
-                          <span>{this.state.autor}</span></div>
+                          <span>{localStorage.getItem('pastor') ? localStorage.getItem('pastor') : this.state.autor}</span></div>
                     </div>
                 </div>
             </div>
@@ -54,4 +50,4 @@ class Vitoria extends Component {
     }
 }
 
-export default Vitoria;
+export default Avivamento;

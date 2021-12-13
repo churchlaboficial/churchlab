@@ -271,9 +271,9 @@
   width: 1080px;
 }
 
-.logo_filial{
+.logoadvec{
   position: absolute;
-    top: 76px;
+    top: 48px;
     right: 0;
     width: 100%;
     position: absolute;
@@ -284,6 +284,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.endadvec{
+  position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 10px 0;
+    font-size: 16pt;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .footer {
@@ -301,4 +321,8 @@
 .heartIcon {
   color: red;
   font-size: 18px;
+}
+
+.lineFour {
+  display: none;
 }

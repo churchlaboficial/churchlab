@@ -4,18 +4,18 @@
 /******************************************/
 /******************************************/
 
-.Vitoria #boxToEdit .defaultBackground{
+.Avivamento #boxToEdit .defaultBackground{
     background-size: cover;
     height: 100%;
     position: relative;
 }
 
-.Vitoria #boxToEdit .defaultBackground.feed{
+.Avivamento #boxToEdit .defaultBackground.feed{
     background-image:url('./feed/default.png');
 }
 
 
-.Vitoria .App-editor #boxToEdit .boxContent {
+.Avivamento .App-editor #boxToEdit .boxContent {
     bottom: 25px;
     width: 100%;
     height: 100%;
@@ -23,18 +23,20 @@
     color: white;
     box-sizing: border-box;
 }
-.Vitoria .App-editor #boxToEdit .boxContent .row {
+.Avivamento .App-editor #boxToEdit .boxContent .row {
     display: block;
     justify-content: space-between;
 }
 
 /******* LINES *********/
-.Vitoria .App-editor #boxToEdit .boxContent .row .line{
-    height: 366px;
+.Avivamento .App-editor #boxToEdit .boxContent .row .line{
+    display: flex;
+    justify-content: space-between;
+    height: 157px;
 }
 
 /******* ROWS *********/
-.Vitoria .App-editor #boxToEdit .boxContent .row.rowOne {
+.Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
     bottom: 76px;
     width: 930px;
@@ -43,7 +45,7 @@
     display: block;
 }
 
-.Vitoria .App-editor #boxToEdit .boxContent .row.rowTwo {
+.Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 10px;
     width: 800px;
@@ -53,7 +55,7 @@
 
 /******* LINES *********/
 
-.Vitoria .lineOnea {
+.Avivamento .lineOnea {
     max-width: 395px;
     /* height: 60px; */
     font-size: 29px;
@@ -69,45 +71,47 @@
     text-transform: uppercase;
 }
 
-.Vitoria .lineTwo {
+.Avivamento .lineTwo {
+    max-width: 330px;
     line-height: 26px;
     text-align: right;
-    font-size: 1.08em;
+    font-size: 29px;
     font-weight: 600;
     position: relative;
     text-transform: uppercase;
     right: 0;
     word-wrap: break-word;
-    text-align: center;
+    display: flex;
+    align-items: flex-end;
 }
 
 
-.Vitoria .lineThreee {
-    justify-content: space-between;
+.Avivamento .lineThreee {
+    justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    max-width: 530px;
     line-height: 29px;
     text-align: left;
     font-size: 29px;
     font-weight: 600;
-    height: 100%;
     text-transform: uppercase;
 }
 
 /******* EXPORT *********/
 
-.Vitoria #boxToEdit.export {
+.Avivamento #boxToEdit.export {
     width: 1080px;
     height: 1080px;
 }
 
 /******
 
-.Vitoria #boxToEdit.export .boxContent {
+.Avivamento #boxToEdit.export .boxContent {
     bottom: 40px;
 }
 
-.Vitoria #boxToEdit.export .lineOne {
+.Avivamento #boxToEdit.export .lineOne {
     width: 90px;
     padding-left: 50px;
     line-height: 22px;
@@ -116,13 +120,13 @@
     font-weight: 600;
 }
 
-.Vitoria #boxToEdit.export .lineTwo {
+.Avivamento #boxToEdit.export .lineTwo {
     font-size: 38px;
     width: 170px;
     line-height: 40px;
 }
 
-.Vitoria #boxToEdit.export .lineThree{
+.Avivamento #boxToEdit.export .lineThree{
     margin-top: 20px;
     font-size: 28px;
     width: 290px;
@@ -136,17 +140,17 @@
 /******************************************/
 /******************************************/
 
-#root.story .Vitoria #boxToEdit .defaultBackground{
+#root.story .Avivamento #boxToEdit .defaultBackground{
     background-image:url('./story/default.png');
 }
 
-#root.story .Vitoria .lineOne {
+#root.story .Avivamento .lineOne {
     /* padding: 0; */
     /* padding-top: 25px; */
     /* padding-bottom: 25px; */
     width: 100%;
     max-width: 100%;
-    font-size: 2em;
+    font-size: 40px;
     margin: 0;
     font-weight: 600;
     display: flex;
@@ -155,15 +159,14 @@
     justify-content: center;
     /* position: absolute; */
     word-wrap: break-word;
-    line-height: 52px;
     /* top: 0px; */
     /* bottom: 100px; */
     text-align: center;
 }
 
-#root.story .Vitoria .lineTwo {
+#root.story .Avivamento .lineTwo {
     max-width: 100%;
-    font-size: 2em;
+    font-size: 38px;
     font-weight: 600;
     display: flex;
     line-height: 39px;
@@ -173,33 +176,34 @@
     text-align: center;
 }
 
-#root.story .Vitoria .lineThreee {
+#root.story .Avivamento .lineThreee {
     max-width: 100% !important;
 }
 
-#root.story .Vitoria .lineThree {
-    line-height: 52px;
+
+#root.story .Avivamento .lineThree {
+    line-height: 42px;
     text-align: center;
-    font-size: 2em;
+    font-size: 40px;
     font-weight: 600;
     max-width: 100%;
     text-align: center;
 }
 
-#root.story .Vitoria .App-editor #boxToEdit .boxContent .row .line {
+#root.story .Avivamento .App-editor #boxToEdit .boxContent .row .line {
     height: 100%;
     flex-direction: column-reverse;
 }
 
 /******* ROWS *********/
-#root.story .Vitoria .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.story .Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 75px;
-    height: 760px;
+    bottom: 311px;
+    height: 560px;
     align-items: center;
 }
 
-#root.story .Vitoria .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.story .Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;
@@ -215,17 +219,17 @@
 /******************************************/
 /******************************************/
 
-#root.wide .Vitoria #boxToEdit .defaultBackground{
+#root.wide .Avivamento #boxToEdit .defaultBackground{
     background-image:url('./wide/default.png');
 }
 
-#root.wide .Vitoria .lineOne {
+#root.wide .Avivamento .lineOne {
+    max-width: 1000px;
     /* height: 60px; */
     font-size: 48px;
     margin: 0;
     margin-bottom: 5px;
     font-weight: 600;
-    text-align: center;
     display: flex;
     line-height: 39px;
     align-items: center;
@@ -235,9 +239,10 @@
     overflow: hidden;
 }
 
-#root.wide .Vitoria .lineTwo {
+#root.wide .Avivamento .lineTwo {
+    max-width: 750px;
     line-height: 46px;
-    text-align: center;
+    text-align: right;
     font-size: 48px;
     font-weight: 600;
     right: 0;
@@ -247,40 +252,39 @@
 
 
 
-#root.wide .Vitoria .lineThree {
-    text-align: center !important;
+#root.wide .Avivamento .lineThree {
+    max-width: 950px;
     line-height: 46px;
     text-align: left;
     font-size: 48px;
     font-weight: 600;
 }
 
-#root.wide .Vitoria .App-editor #boxToEdit .boxContent{
+#root.wide .Avivamento .App-editor #boxToEdit .boxContent{
     padding: 0 3.9%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
     align-items: flex-end;
 }
 
-#root.wide .Vitoria .lineThreee {
+#root.wide .Avivamento .lineThreee {
     max-width: 100%;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-#root.wide .Vitoria .App-editor #boxToEdit .boxContent .row .line {
+#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row .line {
     align-items: flex-end;
-    height: 320px;
 }
 
 /******* ROWS *********/
-#root.wide .Vitoria .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
     position: static;
     width: 100%;
     align-items: center;
     margin-bottom: 78px;
 }
 
-#root.wide .Vitoria .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;
