@@ -30,9 +30,7 @@
 
 /******* LINES *********/
 .Bereana .App-editor #boxToEdit .boxContent .row .line{
-    display: flex;
-    justify-content: space-between;
-    height: 157px;
+    height: 366px;
 }
 
 /******* ROWS *********/
@@ -72,29 +70,27 @@
 }
 
 .Bereana .lineTwo {
-    max-width: 330px;
     line-height: 26px;
     text-align: right;
-    font-size: 29px;
+    font-size: 1.08em;
     font-weight: 600;
     position: relative;
     text-transform: uppercase;
     right: 0;
     word-wrap: break-word;
-    display: flex;
-    align-items: flex-end;
+    text-align: center;
 }
 
 
 .Bereana .lineThreee {
-    justify-content: flex-end;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    max-width: 530px;
     line-height: 29px;
     text-align: left;
     font-size: 29px;
     font-weight: 600;
+    height: 100%;
     text-transform: uppercase;
 }
 
@@ -150,7 +146,7 @@
     /* padding-bottom: 25px; */
     width: 100%;
     max-width: 100%;
-    font-size: 40px;
+    font-size: 2em;
     margin: 0;
     font-weight: 600;
     display: flex;
@@ -159,6 +155,7 @@
     justify-content: center;
     /* position: absolute; */
     word-wrap: break-word;
+    line-height: 52px;
     /* top: 0px; */
     /* bottom: 100px; */
     text-align: center;
@@ -166,7 +163,7 @@
 
 #root.story .Bereana .lineTwo {
     max-width: 100%;
-    font-size: 38px;
+    font-size: 2em;
     font-weight: 600;
     display: flex;
     line-height: 39px;
@@ -180,11 +177,10 @@
     max-width: 100% !important;
 }
 
-
 #root.story .Bereana .lineThree {
-    line-height: 42px;
+    line-height: 52px;
     text-align: center;
-    font-size: 40px;
+    font-size: 2em;
     font-weight: 600;
     max-width: 100%;
     text-align: center;
@@ -198,8 +194,8 @@
 /******* ROWS *********/
 #root.story .Bereana .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 311px;
-    height: 550px;
+    bottom: 75px;
+    height: 760px;
     align-items: center;
 }
 
@@ -224,12 +220,12 @@
 }
 
 #root.wide .Bereana .lineOne {
-    max-width: 1000px;
     /* height: 60px; */
     font-size: 48px;
     margin: 0;
     margin-bottom: 5px;
     font-weight: 600;
+    text-align: center;
     display: flex;
     line-height: 39px;
     align-items: center;
@@ -240,9 +236,8 @@
 }
 
 #root.wide .Bereana .lineTwo {
-    max-width: 750px;
     line-height: 46px;
-    text-align: right;
+    text-align: center;
     font-size: 48px;
     font-weight: 600;
     right: 0;
@@ -253,7 +248,7 @@
 
 
 #root.wide .Bereana .lineThree {
-    max-width: 950px;
+    text-align: center !important;
     line-height: 46px;
     text-align: left;
     font-size: 48px;
@@ -269,11 +264,12 @@
 
 #root.wide .Bereana .lineThreee {
     max-width: 100%;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 #root.wide .Bereana .App-editor #boxToEdit .boxContent .row .line {
     align-items: flex-end;
+    height: 320px;
 }
 
 /******* ROWS *********/
