@@ -14,7 +14,7 @@ import filialName from '../models';
 let dataStructure;
 
 
-class Celebracao extends Component {
+class CasaisVitoriosos extends Component {
     constructor(){
         super();
         this.state = {
@@ -23,7 +23,7 @@ class Celebracao extends Component {
             endereco: 'rua montevidéu, 900 penha - rj',
             backgroundImage: '',
             modelType: '',
-            culto: 'Celebracao',
+            culto: 'CasaisVitoriosos',
         }
     }
 
@@ -34,10 +34,14 @@ class Celebracao extends Component {
                 <div className="row rowOne">
                     <div className="line Two">
                         <div className="lineThreee">
-                          <span className="lineOne">{this.state.data}</span>
-                          <span className="lineThree">{localStorage.getItem('endereco') ? localStorage.getItem('endereco') : this.state.endereco}</span></div>
                         <div className="lineTwo">
-                          <span>{localStorage.getItem('pastor') ? localStorage.getItem('pastor') : this.state.autor}</span></div>
+                          <span>{this.state.autor}</span></div>
+                          <div className="linesBottom">
+                            <span className="lineOne">{this.state.data}</span>
+                            <span className="lineThree">{this.state.endereco}</span></div>
+                          </div>
+                          <div className="lineFour">
+                          <span>{this.state.autor}</span></div>
                     </div>
                 </div>
             </div>
@@ -50,4 +54,4 @@ class Celebracao extends Component {
     }
 }
 
-export default Celebracao;
+export default CasaisVitoriosos;

@@ -4,18 +4,18 @@
 /******************************************/
 /******************************************/
 
-.Celebracao #boxToEdit .defaultBackground{
+.Casais-Vitoriosos #boxToEdit .defaultBackground{
     background-size: cover;
     height: 100%;
     position: relative;
 }
 
-.Celebracao #boxToEdit .defaultBackground.feed{
+.Casais-Vitoriosos #boxToEdit .defaultBackground.feed{
     background-image:url('./feed/default.png');
 }
 
 
-.Celebracao .App-editor #boxToEdit .boxContent {
+.Casais-Vitoriosos .App-editor #boxToEdit .boxContent {
     bottom: 25px;
     width: 100%;
     height: 100%;
@@ -23,18 +23,18 @@
     color: white;
     box-sizing: border-box;
 }
-.Celebracao .App-editor #boxToEdit .boxContent .row {
+.Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row {
     display: block;
     justify-content: space-between;
 }
 
 /******* LINES *********/
-.Celebracao .App-editor #boxToEdit .boxContent .row .line{
+.Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row .line{
     height: 366px;
 }
 
 /******* ROWS *********/
-.Celebracao .App-editor #boxToEdit .boxContent .row.rowOne {
+.Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
     bottom: 76px;
     width: 930px;
@@ -43,7 +43,7 @@
     display: block;
 }
 
-.Celebracao .App-editor #boxToEdit .boxContent .row.rowTwo {
+.Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 10px;
     width: 800px;
@@ -53,7 +53,7 @@
 
 /******* LINES *********/
 
-.Celebracao .lineOnea {
+.Casais-Vitoriosos .lineOnea {
     max-width: 395px;
     /* height: 60px; */
     font-size: 29px;
@@ -69,7 +69,7 @@
     text-transform: uppercase;
 }
 
-.Celebracao .lineTwo {
+.Casais-Vitoriosos .lineTwo {
     line-height: 26px;
     text-align: right;
     font-size: 1.08em;
@@ -82,7 +82,7 @@
 }
 
 
-.Celebracao .lineThreee {
+.Casais-Vitoriosos .lineThreee {
     justify-content: space-between;
     display: flex;
     flex-direction: column;
@@ -96,18 +96,18 @@
 
 /******* EXPORT *********/
 
-.Celebracao #boxToEdit.export {
+.Casais-Vitoriosos #boxToEdit.export {
     width: 1080px;
     height: 1080px;
 }
 
 /******
 
-.Celebracao #boxToEdit.export .boxContent {
+.Casais-Vitoriosos #boxToEdit.export .boxContent {
     bottom: 40px;
 }
 
-.Celebracao #boxToEdit.export .lineOne {
+.Casais-Vitoriosos #boxToEdit.export .lineOne {
     width: 90px;
     padding-left: 50px;
     line-height: 22px;
@@ -116,13 +116,13 @@
     font-weight: 600;
 }
 
-.Celebracao #boxToEdit.export .lineTwo {
+.Casais-Vitoriosos #boxToEdit.export .lineTwo {
     font-size: 38px;
     width: 170px;
     line-height: 40px;
 }
 
-.Celebracao #boxToEdit.export .lineThree{
+.Casais-Vitoriosos #boxToEdit.export .lineThree{
     margin-top: 20px;
     font-size: 28px;
     width: 290px;
@@ -136,11 +136,11 @@
 /******************************************/
 /******************************************/
 
-#root.story .Celebracao #boxToEdit .defaultBackground{
+#root.story .Casais-Vitoriosos #boxToEdit .defaultBackground{
     background-image:url('./story/default.png');
 }
 
-#root.story .Celebracao .lineOne {
+#root.story .Casais-Vitoriosos .lineOne {
     /* padding: 0; */
     /* padding-top: 25px; */
     /* padding-bottom: 25px; */
@@ -161,7 +161,7 @@
     text-align: center;
 }
 
-#root.story .Celebracao .lineTwo {
+#root.story .Casais-Vitoriosos .lineTwo {
     max-width: 100%;
     font-size: 2em;
     font-weight: 600;
@@ -173,11 +173,11 @@
     text-align: center;
 }
 
-#root.story .Celebracao .lineThreee {
+#root.story .Casais-Vitoriosos .lineThreee {
     max-width: 100% !important;
 }
 
-#root.story .Celebracao .lineThree {
+#root.story .Casais-Vitoriosos .lineThree {
     line-height: 52px;
     text-align: center;
     font-size: 2em;
@@ -186,20 +186,20 @@
     text-align: center;
 }
 
-#root.story .Celebracao .App-editor #boxToEdit .boxContent .row .line {
+#root.story .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row .line {
     height: 100%;
     flex-direction: column-reverse;
 }
 
 /******* ROWS *********/
-#root.story .Celebracao .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.story .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
     bottom: 75px;
     height: 760px;
     align-items: center;
 }
 
-#root.story .Celebracao .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.story .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;
@@ -215,11 +215,11 @@
 /******************************************/
 /******************************************/
 
-#root.wide .Celebracao #boxToEdit .defaultBackground{
+#root.wide .Casais-Vitoriosos #boxToEdit .defaultBackground{
     background-image:url('./wide/default.png');
 }
 
-#root.wide .Celebracao .lineOne {
+#root.wide .Casais-Vitoriosos .lineOne {
     /* height: 60px; */
     font-size: 48px;
     margin: 0;
@@ -235,7 +235,7 @@
     overflow: hidden;
 }
 
-#root.wide .Celebracao .lineTwo {
+#root.wide .Casais-Vitoriosos .lineTwo {
     line-height: 46px;
     text-align: center;
     font-size: 48px;
@@ -247,7 +247,7 @@
 
 
 
-#root.wide .Celebracao .lineThree {
+#root.wide .Casais-Vitoriosos .lineThree {
     text-align: center !important;
     line-height: 46px;
     text-align: left;
@@ -255,32 +255,32 @@
     font-weight: 600;
 }
 
-#root.wide .Celebracao .App-editor #boxToEdit .boxContent{
+#root.wide .Casais-Vitoriosos .App-editor #boxToEdit .boxContent{
     padding: 0 3.9%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-#root.wide .Celebracao .lineThreee {
+#root.wide .Casais-Vitoriosos .lineThreee {
     max-width: 100%;
     justify-content: space-between;
 }
 
-#root.wide .Celebracao .App-editor #boxToEdit .boxContent .row .line {
+#root.wide .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row .line {
     align-items: flex-end;
     height: 320px;
 }
 
 /******* ROWS *********/
-#root.wide .Celebracao .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.wide .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowOne {
     position: static;
     width: 100%;
     align-items: center;
     margin-bottom: 78px;
 }
 
-#root.wide .Celebracao .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.wide .Casais-Vitoriosos .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;

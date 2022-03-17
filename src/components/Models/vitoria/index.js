@@ -18,7 +18,7 @@ class Vitoria extends Component {
     constructor(){
         super();
         this.state = {
-            data: 'Quinta-feira às 19h',
+            data: 'domingo às 19h',
             autor: 'Pr. Silas Malafaia',
             endereco: 'rua montevidéu, 900 penha - rj',
             backgroundImage: '',

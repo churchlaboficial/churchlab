@@ -360,12 +360,6 @@ class App extends React.Component {
     if(this.setState.loggedIn === true || localStorage.getItem('token')){
       return (
         <main className="App-container">
-          <div className="AppBlockMobile">
-            <div className="AppBlockMobile__Container">
-              <img src={require('./assets/img/alert-icon.png')} />
-              Para melhor performance indicamos utilizar um computador para a criação das artes. 
-            </div>
-          </div>
           <div className="App-header">
             <div className="App-actions">
               <img className="App-logo" src={require('./assets/img/logo.png')} />
@@ -384,12 +378,6 @@ class App extends React.Component {
       return ( 
 
         <main className="App-container">
-        <div className="AppBlockMobile">
-          <div className="AppBlockMobile__Container">
-            <img src={require('./assets/img/alert-icon.png')} />
-            Para melhor performance indicamos utilizar um computador para a criação das artes. 
-          </div>
-        </div>
         <div className="App-header">
         <img className="App-logo" src={require('./assets/img/logo.png')} />
           {this._appBackButton()}

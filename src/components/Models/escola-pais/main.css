@@ -4,18 +4,18 @@
 /******************************************/
 /******************************************/
 
-.Avivamento #boxToEdit .defaultBackground{
+.Escola-Pais #boxToEdit .defaultBackground{
     background-size: cover;
     height: 100%;
     position: relative;
 }
 
-.Avivamento #boxToEdit .defaultBackground.feed{
+.Escola-Pais #boxToEdit .defaultBackground.feed{
     background-image:url('./feed/default.png');
 }
 
 
-.Avivamento .App-editor #boxToEdit .boxContent {
+.Escola-Pais .App-editor #boxToEdit .boxContent {
     bottom: 25px;
     width: 100%;
     height: 100%;
@@ -23,20 +23,18 @@
     color: white;
     box-sizing: border-box;
 }
-.Avivamento .App-editor #boxToEdit .boxContent .row {
+.Escola-Pais .App-editor #boxToEdit .boxContent .row {
     display: block;
     justify-content: space-between;
 }
 
 /******* LINES *********/
-.Avivamento .App-editor #boxToEdit .boxContent .row .line{
-    display: flex;
-    justify-content: space-between;
-    height: 157px;
+.Escola-Pais .App-editor #boxToEdit .boxContent .row .line{
+    height: 366px;
 }
 
 /******* ROWS *********/
-.Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
+.Escola-Pais .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
     bottom: 76px;
     width: 930px;
@@ -45,7 +43,7 @@
     display: block;
 }
 
-.Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
+.Escola-Pais .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 10px;
     width: 800px;
@@ -55,7 +53,7 @@
 
 /******* LINES *********/
 
-.Avivamento .lineOnea {
+.Escola-Pais .lineOnea {
     max-width: 395px;
     /* height: 60px; */
     font-size: 29px;
@@ -71,47 +69,45 @@
     text-transform: uppercase;
 }
 
-.Avivamento .lineTwo {
-    max-width: 330px;
+.Escola-Pais .lineTwo {
     line-height: 26px;
     text-align: right;
-    font-size: 29px;
+    font-size: 1.08em;
     font-weight: 600;
     position: relative;
     text-transform: uppercase;
     right: 0;
     word-wrap: break-word;
-    display: flex;
-    align-items: flex-end;
+    text-align: center;
 }
 
 
-.Avivamento .lineThreee {
-    justify-content: flex-end;
+.Escola-Pais .lineThreee {
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
-    max-width: 530px;
     line-height: 29px;
     text-align: left;
     font-size: 29px;
     font-weight: 600;
+    height: 100%;
     text-transform: uppercase;
 }
 
 /******* EXPORT *********/
 
-.Avivamento #boxToEdit.export {
+.Escola-Pais #boxToEdit.export {
     width: 1080px;
     height: 1080px;
 }
 
 /******
 
-.Avivamento #boxToEdit.export .boxContent {
+.Escola-Pais #boxToEdit.export .boxContent {
     bottom: 40px;
 }
 
-.Avivamento #boxToEdit.export .lineOne {
+.Escola-Pais #boxToEdit.export .lineOne {
     width: 90px;
     padding-left: 50px;
     line-height: 22px;
@@ -120,13 +116,13 @@
     font-weight: 600;
 }
 
-.Avivamento #boxToEdit.export .lineTwo {
+.Escola-Pais #boxToEdit.export .lineTwo {
     font-size: 38px;
     width: 170px;
     line-height: 40px;
 }
 
-.Avivamento #boxToEdit.export .lineThree{
+.Escola-Pais #boxToEdit.export .lineThree{
     margin-top: 20px;
     font-size: 28px;
     width: 290px;
@@ -140,17 +136,17 @@
 /******************************************/
 /******************************************/
 
-#root.story .Avivamento #boxToEdit .defaultBackground{
+#root.story .Escola-Pais #boxToEdit .defaultBackground{
     background-image:url('./story/default.png');
 }
 
-#root.story .Avivamento .lineOne {
+#root.story .Escola-Pais .lineOne {
     /* padding: 0; */
     /* padding-top: 25px; */
     /* padding-bottom: 25px; */
     width: 100%;
     max-width: 100%;
-    font-size: 40px;
+    font-size: 2em;
     margin: 0;
     font-weight: 600;
     display: flex;
@@ -159,14 +155,15 @@
     justify-content: center;
     /* position: absolute; */
     word-wrap: break-word;
+    line-height: 52px;
     /* top: 0px; */
     /* bottom: 100px; */
     text-align: center;
 }
 
-#root.story .Avivamento .lineTwo {
+#root.story .Escola-Pais .lineTwo {
     max-width: 100%;
-    font-size: 38px;
+    font-size: 2em;
     font-weight: 600;
     display: flex;
     line-height: 39px;
@@ -176,34 +173,33 @@
     text-align: center;
 }
 
-#root.story .Avivamento .lineThreee {
+#root.story .Escola-Pais .lineThreee {
     max-width: 100% !important;
 }
 
-
-#root.story .Avivamento .lineThree {
-    line-height: 42px;
+#root.story .Escola-Pais .lineThree {
+    line-height: 52px;
     text-align: center;
-    font-size: 40px;
+    font-size: 2em;
     font-weight: 600;
     max-width: 100%;
     text-align: center;
 }
 
-#root.story .Avivamento .App-editor #boxToEdit .boxContent .row .line {
+#root.story .Escola-Pais .App-editor #boxToEdit .boxContent .row .line {
     height: 100%;
     flex-direction: column-reverse;
 }
 
 /******* ROWS *********/
-#root.story .Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.story .Escola-Pais .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 311px;
-    height: 560px;
+    bottom: 75px;
+    height: 760px;
     align-items: center;
 }
 
-#root.story .Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.story .Escola-Pais .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;
@@ -219,17 +215,17 @@
 /******************************************/
 /******************************************/
 
-#root.wide .Avivamento #boxToEdit .defaultBackground{
+#root.wide .Escola-Pais #boxToEdit .defaultBackground{
     background-image:url('./wide/default.png');
 }
 
-#root.wide .Avivamento .lineOne {
-    max-width: 1000px;
+#root.wide .Escola-Pais .lineOne {
     /* height: 60px; */
     font-size: 48px;
     margin: 0;
     margin-bottom: 5px;
     font-weight: 600;
+    text-align: center;
     display: flex;
     line-height: 39px;
     align-items: center;
@@ -239,10 +235,9 @@
     overflow: hidden;
 }
 
-#root.wide .Avivamento .lineTwo {
-    max-width: 750px;
+#root.wide .Escola-Pais .lineTwo {
     line-height: 46px;
-    text-align: right;
+    text-align: center;
     font-size: 48px;
     font-weight: 600;
     right: 0;
@@ -252,39 +247,40 @@
 
 
 
-#root.wide .Avivamento .lineThree {
-    max-width: 950px;
+#root.wide .Escola-Pais .lineThree {
+    text-align: center !important;
     line-height: 46px;
     text-align: left;
     font-size: 48px;
     font-weight: 600;
 }
 
-#root.wide .Avivamento .App-editor #boxToEdit .boxContent{
+#root.wide .Escola-Pais .App-editor #boxToEdit .boxContent{
     padding: 0 3.9%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 
-#root.wide .Avivamento .lineThreee {
+#root.wide .Escola-Pais .lineThreee {
     max-width: 100%;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row .line {
+#root.wide .Escola-Pais .App-editor #boxToEdit .boxContent .row .line {
     align-items: flex-end;
+    height: 320px;
 }
 
 /******* ROWS *********/
-#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row.rowOne {
+#root.wide .Escola-Pais .App-editor #boxToEdit .boxContent .row.rowOne {
     position: static;
     width: 100%;
     align-items: center;
     margin-bottom: 78px;
 }
 
-#root.wide .Avivamento .App-editor #boxToEdit .boxContent .row.rowTwo {
+#root.wide .Escola-Pais .App-editor #boxToEdit .boxContent .row.rowTwo {
     position: absolute;
     bottom: 130px;
     width: 800px;
