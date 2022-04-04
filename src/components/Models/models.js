@@ -34,12 +34,14 @@ class Models extends Component {
             cultoType: this.props.cultoName,
             filials: [],
             loadingFilials: true,
+            
 
       }
         this.handleBackgroundChange = this.handleBackgroundChange.bind(this);
         this.handleBackgroundTemplate = this.handleBackgroundTemplate.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.changeModelType = this.changeModelType.bind(this);
+
       }
         handleInputChange(e){
 
@@ -51,7 +53,7 @@ class Models extends Component {
             [name]: value
           })
 
-          console.log(name);
+          console.log(this.props.teste);
 
           switch(name) {
             case "lineOne":
@@ -400,6 +402,19 @@ class Models extends Component {
                     </div>
                     <div className="contentFields">
                         <div className="fields">
+                            {this.state.cultoType == 'Celebracao' &&
+                                <TextField
+                                    multiline
+                                    rowsMax={3}
+                                    label="Teste"
+                                    margin="normal"
+                                    variant="outlined"
+                                    name="lineFour"
+                                    onChange={this.handleInputChange.bind(this)}
+                                    value={this.state.lineFour}
+                                />
+                            }
+                            
                             <TextField
                                 multiline
                                 rowsMax={3}

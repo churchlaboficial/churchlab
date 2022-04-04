@@ -4,6 +4,11 @@
 /******************************************/
 /******************************************/
 
+.Mulher-Vitoriosa .endadvec {
+    color: #ffffff !important;
+    background-color: #5a2e54;
+}
+
 .Mulher-Vitoriosa #boxToEdit .defaultBackground{
     background-size: cover;
     height: 100%;
@@ -30,13 +35,13 @@
 
 /******* LINES *********/
 .Mulher-Vitoriosa .App-editor #boxToEdit .boxContent .row .line{
-    height: 366px;
+    height: 215px;
 }
 
 /******* ROWS *********/
 .Mulher-Vitoriosa .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
-    bottom: 76px;
+    bottom: 54px;
     width: 930px;
     overflow: inherit;
     align-items: center;
@@ -70,7 +75,7 @@
 }
 
 .Mulher-Vitoriosa .lineTwo {
-    line-height: 26px;
+    line-height: 30px;
     text-align: right;
     font-size: 1.08em;
     font-weight: 600;
@@ -90,8 +95,20 @@
     text-align: left;
     font-size: 29px;
     font-weight: 600;
-    height: 100%;
     text-transform: uppercase;
+    color: #fff;
+    height: 100%;
+}
+
+.Mulher-Vitoriosa .lineOne {
+    font-size: 1.24em;
+}
+.Mulher-Vitoriosa .lineTwo {
+    font-size: 1.24em;
+}
+.Mulher-Vitoriosa .lineThree {
+    font-size: 1em;
+    line-height: 30px;
 }
 
 /******* EXPORT *********/
@@ -195,7 +212,7 @@
 #root.story .Mulher-Vitoriosa .App-editor #boxToEdit .boxContent .row.rowOne {
     position: absolute;
     bottom: 75px;
-    height: 760px;
+    height: 531px;
     align-items: center;
 }
 
@@ -269,7 +286,7 @@
 
 #root.wide .Mulher-Vitoriosa .App-editor #boxToEdit .boxContent .row .line {
     align-items: flex-end;
-    height: 320px;
+    height: 271px;
 }
 
 /******* ROWS *********/
